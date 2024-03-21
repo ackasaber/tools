@@ -63,16 +63,23 @@ public class DjvuAssembler {
 			showHelp = true;
 			return;
 		}
-		
-		checkOption(cmd, inputOption);
-		checkOption(cmd, maskOption);
-		checkOption(cmd, outputOption);
-		checkOption(cmd, tooldirOption);
-	
-		inputPath = pathValue(cmd, inputOption);
-		inputMask = cmd.getOptionValue(maskOption);
-		outputFile = pathValue(cmd, outputOption);
-		djvuLibrePath = pathValue(cmd, tooldirOption);
+
+		inputPath = Path.of("");
+		inputMask = "*.jpg";
+		outputFile = Path.of("document.djvu");
+		djvuLibrePath = Path.of("C:\\Program Files (x86)\\DjVuLibre");
+
+		if (cmd.hasOption(inputOption))
+			inputPath = pathValue(cmd, inputOption);
+
+		if (cmd.hasOption(maskOption))
+			inputMask = cmd.getOptionValue(maskOption);
+
+		if (cmd.hasOption(outputOption))
+			outputFile = pathValue(cmd, outputOption);
+
+		if (cmd.hasOption(tooldirOption))
+			djvuLibrePath = pathValue(cmd, tooldirOption);
 	}
 	
 	private Path pathValue(CommandLine line, Option option) {
@@ -126,38 +133,33 @@ public class DjvuAssembler {
 		var helpFormatter = new HelpFormatter();
 		helpFormatter.printHelp("djvu-assembler", options);
 	}
-	
-	private static void checkOption(CommandLine line, Option option) throws ParseException {
-		if (!line.hasOption(option)) {
-			throw new ParseException("Missing option -" + option.getOpt()
-				+ " or --" + option.getLongOpt());
-		}
-	}
-	
+
 	public void assemble() throws InterruptedException {
 		System.out.println("Input path: " + inputPath);
 		System.out.println("Mask: " + inputMask);
+		Path resolvedOutput = inputPath.resolve(outputFile);
+		System.out.println("Output file: " + resolvedOutput);
 		
 		var inputs = collectInputs();
 		
 		if (inputs.isEmpty()) {
 			System.err.println("No files found");
-			return;
+			System.exit(3);
 		}
 		
 		System.out.println("Found " + inputs.size() + " input files");
 		
 		Path first = inputs.getFirst();
-		Path tempImage = resolveNearby(outputFile, ".page.djvu");
+		Path tempImage = resolveNearby(resolvedOutput, ".page.djvu");
 		convert(first, tempImage);
 		System.out.println("Creating the first page...");
-		createCollated(outputFile, tempImage);
+		createCollated(resolvedOutput, tempImage);
 		
 		for (int i = 1; i < inputs.size(); i++) {
 			Path image = inputs.get(i);
 			convert(image, tempImage);
 			System.out.println("Adding page " + (i+1) + "...");
-			merge(outputFile, tempImage);
+			merge(resolvedOutput, tempImage);
 		}
 		
 		System.out.println("Done!");
@@ -222,6 +224,8 @@ public class DjvuAssembler {
 			process.waitFor();
 			
 			if (process.exitValue() != 0)
+				// TODO integrate the command line into the message
+				// Custom exception with an extra parameter?
 				throw new RuntimeException("DjvuLibre utility finished with exit code " + process.exitValue());
 		} catch (IOException e) {
 			throw new UncheckedIOException("Couldn't start " + args[0], e);
