@@ -150,7 +150,7 @@ public class DjvuAssembler {
 		System.out.println("Found " + inputs.size() + " input files");
 		
 		Path first = inputs.getFirst();
-		Path tempImage = resolveNearby(resolvedOutput, ".page.djvu");
+		Path tempImage = resolvedOutput.resolveSibling(".page.djvu");
 		convert(first, tempImage);
 		System.out.println("Creating the first page...");
 		createCollated(resolvedOutput, tempImage);
@@ -169,13 +169,6 @@ public class DjvuAssembler {
 		} catch (IOException e) {
 			System.err.println("Couldn't delete the temporary file " + tempImage);
 		}
-	}
-	
-	private static Path resolveNearby(Path anchor, String filename) {
-		if (anchor.getParent() == null)
-			return Path.of(filename);
-		
-		return anchor.getParent().resolve(filename);
 	}
 	
 	private List<Path> collectInputs() {
