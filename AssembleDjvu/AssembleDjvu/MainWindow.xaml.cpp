@@ -14,7 +14,6 @@ namespace winrt::AssembleDjvu::implementation
 {
     MainWindow::MainWindow()
     {
-        Title(L"Djvu Assembler");
     }
 
     int32_t MainWindow::MyProperty()
