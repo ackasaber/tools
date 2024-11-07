@@ -9,7 +9,42 @@
     mc:Ignorable="d"
     Title="Djvu Assembler">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
+    <StackPanel>
+        <StackPanel.Resources>
+            <XamlUICommand x:Name="AddCommand"
+                           Label="Add..."
+                           Description="Add pages to the document"
+                           ExecuteRequested="ExecuteAddCommand">
+                <XamlUICommand.IconSource>
+                    <FontIconSource Glyph="&#xE710;"/>
+                </XamlUICommand.IconSource>
+                <XamlUICommand.KeyboardAccelerators>
+                    <KeyboardAccelerator Key="Insert"/>
+                </XamlUICommand.KeyboardAccelerators>
+            </XamlUICommand>
+        </StackPanel.Resources>
+        <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right">
+            <AppBarButton Command="{StaticResource AddCommand}"/>
+            <AppBarButton Label="Remove">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xE738;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Label="Move Up">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xE70E;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Label="Move Down">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xE70D;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Label="Convert">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xE768;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+        </CommandBar>
     </StackPanel>
 </Window>

@@ -8,10 +8,9 @@ namespace winrt::AssembleDjvu::implementation
     {
         MainWindow();
 
-        int32_t MyProperty();
-        void MyProperty(int32_t value);
+        void ExecuteAddCommand(winrt::Microsoft::UI::Xaml::Input::XamlUICommand const& sender,
+            winrt::Microsoft::UI::Xaml::Input::ExecuteRequestedEventArgs const& args);
 
-        void myButton_Click(IInspectable const& sender, Microsoft::UI::Xaml::RoutedEventArgs const& args);
     };
 }
 
