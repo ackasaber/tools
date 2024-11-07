@@ -1,0 +1,5 @@
+/.vs/
+x64/
+Generated Files/
+/packages/
+*.user
