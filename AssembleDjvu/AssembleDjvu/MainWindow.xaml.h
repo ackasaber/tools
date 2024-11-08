@@ -6,11 +6,13 @@ namespace winrt::AssembleDjvu::implementation
 {
     struct MainWindow : MainWindowT<MainWindow>
     {
+        using XamlUICommand = winrt::Microsoft::UI::Xaml::Input::XamlUICommand;
+        using ExecuteRequestedEventArgs = winrt::Microsoft::UI::Xaml::Input::ExecuteRequestedEventArgs;
+
         MainWindow();
 
-        void ExecuteAddCommand(winrt::Microsoft::UI::Xaml::Input::XamlUICommand const& sender,
-            winrt::Microsoft::UI::Xaml::Input::ExecuteRequestedEventArgs const& args);
-
+        void ExecuteAddCommand(XamlUICommand const& sender, ExecuteRequestedEventArgs const& args);
+        void ExecuteConvertCommand(XamlUICommand const& sender, ExecuteRequestedEventArgs const& args);
     };
 }
 

@@ -22,29 +22,21 @@
                     <KeyboardAccelerator Key="Insert"/>
                 </XamlUICommand.KeyboardAccelerators>
             </XamlUICommand>
+            <XamlUICommand x:Name="ConvertCommand"
+               Label="Convert"
+               Description="Convert pages to Djvu"
+               ExecuteRequested="ExecuteConvertCommand">
+                <XamlUICommand.IconSource>
+                    <FontIconSource Glyph="&#xE768;"/>
+                </XamlUICommand.IconSource>
+                <XamlUICommand.KeyboardAccelerators>
+                    <KeyboardAccelerator Key="R" Modifiers="Control"/>
+                </XamlUICommand.KeyboardAccelerators>
+            </XamlUICommand>
         </StackPanel.Resources>
         <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right">
             <AppBarButton Command="{StaticResource AddCommand}"/>
-            <AppBarButton Label="Remove">
-                <AppBarButton.Icon>
-                    <FontIcon Glyph="&#xE738;"/>
-                </AppBarButton.Icon>
-            </AppBarButton>
-            <AppBarButton Label="Move Up">
-                <AppBarButton.Icon>
-                    <FontIcon Glyph="&#xE70E;"/>
-                </AppBarButton.Icon>
-            </AppBarButton>
-            <AppBarButton Label="Move Down">
-                <AppBarButton.Icon>
-                    <FontIcon Glyph="&#xE70D;"/>
-                </AppBarButton.Icon>
-            </AppBarButton>
-            <AppBarButton Label="Convert">
-                <AppBarButton.Icon>
-                    <FontIcon Glyph="&#xE768;"/>
-                </AppBarButton.Icon>
-            </AppBarButton>
+            <AppBarButton Command="{StaticResource ConvertCommand}"/>
         </CommandBar>
     </StackPanel>
 </Window>
