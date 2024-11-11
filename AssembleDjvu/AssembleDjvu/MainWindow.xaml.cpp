@@ -27,10 +27,20 @@ namespace winrt::AssembleDjvu::implementation
         HWND parentHwnd{ 0 };
         winrt::check_hresult(nativeWindow->get_WindowHandle(&parentHwnd));
         HRESULT choiceHR = dialog->Show(parentHwnd);
-        if (SUCCEEDED(choiceHR))
-            OutputDebugString(L"Picked one");
-        else
-            OutputDebugString(L"Didn't pick?");
+
+        if (choiceHR == HRESULT_FROM_WIN32(ERROR_CANCELLED)) {
+            OutputDebugString(L"Cancelled");
+            return;
+        }
+
+        winrt::check_hresult(choiceHR);
+        OutputDebugString(L"Picked one");
+        winrt::com_ptr<IShellItem> choiceItem;
+        winrt::check_hresult(dialog->GetResult(choiceItem.put()));
+        PWSTR choicePath = nullptr;
+        winrt::check_hresult(choiceItem->GetDisplayName(SIGDN_FILESYSPATH, &choicePath));
+        MessageBox(NULL, choicePath, L"Chosen", MB_OK);
+        CoTaskMemFree(choicePath);
     }
 
     void MainWindow::ExecuteConvertCommand(XamlUICommand const&, ExecuteRequestedEventArgs const&)
