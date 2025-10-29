@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _UNICODEBYTESTREAM_H_
-#define _UNICODEBYTESTREAM_H_
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -195,5 +194,3 @@ XMLByteStream::create(UnicodeByteStream &bs)
 using namespace DJVU;
 # endif
 #endif
-#endif
-

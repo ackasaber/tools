@@ -53,8 +53,8 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _DJVUFILECACHE_H
-#define _DJVUFILECACHE_H
+#pragma once
+
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -282,5 +282,4 @@ DjVuFileCache::create(const int max_size)
 # ifndef NOT_USING_DJVU_NAMESPACE
 using namespace DJVU;
 # endif
-#endif
 #endif

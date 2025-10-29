@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _DJVUPALETTE_H_
-#define _DJVUPALETTE_H_
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -328,9 +327,3 @@ DjVuPalette::get_color(int nth, GPixel &p) const
 using namespace DJVU;
 # endif
 #endif
-#endif
-      
-      
-             
-
-    

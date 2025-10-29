@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _GURL_H_
-#define _GURL_H_
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -440,5 +439,4 @@ GURL::is_valid(void) const
 # ifndef NOT_USING_DJVU_NAMESPACE
 using namespace DJVU;
 # endif
-#endif
 #endif

@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _DATAPOOL_H
-#define _DATAPOOL_H
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -623,5 +622,4 @@ DataPool::is_connected(void) const
 # ifndef NOT_USING_DJVU_NAMESPACE
 using namespace DJVU;
 # endif
-#endif
 #endif

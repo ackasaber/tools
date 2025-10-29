@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _BYTESTREAM_H
-#define _BYTESTREAM_H
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -406,5 +405,3 @@ private:
 using namespace DJVU;
 # endif
 #endif
-#endif
-

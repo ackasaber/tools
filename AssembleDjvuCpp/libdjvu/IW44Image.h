@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef IW44IMAGE_H_
-#define IW44IMAGE_H_
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -755,5 +754,3 @@ IW44Image::Block::set(int n, int val, IW44Image::Map *map)
 using namespace DJVU;
 # endif
 #endif
-#endif
-

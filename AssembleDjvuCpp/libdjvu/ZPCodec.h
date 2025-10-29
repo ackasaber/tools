@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _ZPCODEC_H
-#define _ZPCODEC_H
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -739,6 +738,3 @@ ZPCodec::IWencoder(const bool bit)
 using namespace DJVU;
 # endif
 #endif
-#endif
-
-

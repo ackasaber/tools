@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _DJVUTEXT_H
-#define _DJVUTEXT_H
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -274,6 +273,3 @@ DjVuText::get_memory_usage() const
 using namespace DJVU;
 # endif
 #endif
-#endif
-
-

@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _DJVUGLOBAL_H
-#define _DJVUGLOBAL_H
+#pragma once
 #ifdef HAVE_CONFIG_H
 # include "config.h"
 #endif
@@ -387,7 +386,3 @@ DJVUEXTERNCAPI(const char *djvu_programname(const char *programname));
 #  define ERR_MSG(x) x
 # endif
 #endif
-
-#endif /* _DJVUGLOBAL_H_ */
-
-

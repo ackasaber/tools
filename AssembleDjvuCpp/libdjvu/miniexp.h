@@ -16,8 +16,7 @@
 // -------------------------------------------------------------------
 */
 
-#ifndef MINIEXP_H
-#define MINIEXP_H
+#pragma once
 
 #ifdef __cplusplus
 extern "C" { 
@@ -791,5 +790,3 @@ MINILISPAPI miniexp_t miniexp_mutate(miniexp_t obj, miniexp_t *v, miniexp_t p);
 /* -------------------------------------------------- */
 /* THE END                                            */
 /* -------------------------------------------------- */
-
-#endif /* MINIEXP_H */

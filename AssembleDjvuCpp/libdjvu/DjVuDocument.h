@@ -53,8 +53,8 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _DJVUDOCUMENT_H
-#define _DJVUDOCUMENT_H
+#pragma once
+
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -1065,5 +1065,4 @@ DjVuDocument::set_verbose_eof(bool verbose)
 # ifndef NOT_USING_DJVU_NAMESPACE
 using namespace DJVU;
 # endif
-#endif
 #endif

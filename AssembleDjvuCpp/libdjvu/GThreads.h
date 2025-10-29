@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _GTHREADS_H_
-#define _GTHREADS_H_
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -473,5 +472,3 @@ public:
 using namespace DJVU;
 # endif
 #endif
-#endif //_GTHREADS_H_
-

@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _GPIXMAP_H_
-#define _GPIXMAP_H_
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -530,6 +529,3 @@ GPixmap::get_memory_usage() const
 using namespace DJVU;
 # endif
 #endif
-#endif
-
-

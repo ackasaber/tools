@@ -59,8 +59,7 @@
 //T// Comments prefixed with '//T//' explain the template
 //T// features and should be removed.
 
-#ifndef _TEMPLATE_H_
-#define _TEMPLATE_H_
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -246,10 +245,3 @@ ClassExample::width()
 using namespace DJVU;
 # endif
 #endif
-#endif
-//T// Terminates the multiple inclusion #ifndef
-      
-      
-             
-
-    

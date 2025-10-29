@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _LT_XMLPARSER__
-#define _LT_XMLPARSER__
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -117,6 +116,3 @@ public:
 using namespace DJVU;
 # endif
 #endif
-#endif /* _LT_XMLPARSER__ */
-
-

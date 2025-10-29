@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _GSTRING_H_
-#define _GSTRING_H_
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -1691,5 +1690,3 @@ operator<=(const char    s1, const GBaseString &s2)
 using namespace DJVU;
 # endif
 #endif
-#endif
-

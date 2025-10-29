@@ -24,9 +24,7 @@
 //
 // ------------------------------------------------------------------- */
 
-#ifndef ATOMIC_H
-#define ATOMIC_H
-
+#pragma once
 #ifdef HAVE_CONFIG_H
 # include "config.h"
 #endif
@@ -161,5 +159,3 @@ extern "C" {
 # ifdef __cplusplus
 }
 # endif
-
-#endif

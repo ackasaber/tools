@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _JPEGDECODER_H_
-#define _JPEGDECODER_H_
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -127,5 +126,3 @@ using namespace DJVU;
 #endif
 
 #endif // NEED_JPEG_DECODER
-#endif // _JPEGDECODER_H_
-

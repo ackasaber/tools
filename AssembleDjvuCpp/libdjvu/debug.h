@@ -53,9 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _DEBUG_H_
-#define _DEBUG_H_
-
+#pragma once
 #ifdef HAVE_CONFIG_H
 # include "config.h"
 #endif
@@ -293,5 +291,3 @@ public:
 using namespace DJVU;
 # endif
 #endif
-
-#endif // DEBUG_H

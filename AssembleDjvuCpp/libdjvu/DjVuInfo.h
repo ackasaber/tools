@@ -53,8 +53,6 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _DJVUINFO_H
-#define _DJVUINFO_H
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -188,5 +186,4 @@ public:
 # ifndef NOT_USING_DJVU_NAMESPACE
 using namespace DJVU;
 # endif
-#endif
 #endif

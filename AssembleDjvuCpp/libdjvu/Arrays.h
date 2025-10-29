@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _ARRAYS_H_
-#define _ARRAYS_H_
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -979,5 +978,3 @@ DPArray<TYPE>::operator= (const DPArray &ga)
 using namespace DJVU;
 # endif
 #endif
-#endif
-

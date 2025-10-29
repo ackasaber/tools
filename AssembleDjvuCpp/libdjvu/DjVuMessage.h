@@ -53,9 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-
-#ifndef __DJVU_MESSAGE_H__
-#define __DJVU_MESSAGE_H__
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -130,5 +128,3 @@ public:
 using namespace DJVU;
 # endif
 #endif
-#endif /* __DJVU_MESSAGE_H__ */
-

@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _JB2IMAGE_H
-#define _JB2IMAGE_H
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -801,5 +800,3 @@ JB2Dict::JB2Codec::shift_cross_context( const int context, const int n,
 using namespace DJVU;
 # endif
 #endif
-#endif
-

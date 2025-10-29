@@ -53,8 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifndef _LT_XMLTAGS__
-#define _LT_XMLTAGS__
+#pragma once
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -236,6 +235,3 @@ lt_XMLTags::operator [] (const GPosition &pos) const
 using namespace DJVU;
 # endif
 #endif
-#endif /* _LT_XMLTAGS__ */
-
-
