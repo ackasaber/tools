@@ -54,9 +54,7 @@
 //C- +------------------------------------------------------------------
 
 #pragma once
-#ifdef HAVE_CONFIG_H
-# include "config.h"
-#endif
+#include "config.h"
 #if NEED_GNUG_PRAGMAS
 # pragma interface
 #endif
@@ -111,10 +109,8 @@
 #include "DjVuGlobal.h"
 
 // Check if compiler supports native exceptions
-#ifdef HAVE_CONFIG_H
-# ifndef HAVE_EXCEPTIONS
-#  define USE_EXCEPTION_EMULATION 1
-# endif
+#ifndef HAVE_EXCEPTIONS
+# define USE_EXCEPTION_EMULATION 1
 #endif
 
 #ifdef HAVE_NAMESPACES

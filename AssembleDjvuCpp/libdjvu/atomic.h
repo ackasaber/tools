@@ -25,9 +25,7 @@
 // ------------------------------------------------------------------- */
 
 #pragma once
-#ifdef HAVE_CONFIG_H
-# include "config.h"
-#endif
+#include "config.h"
 
 /* This file defines macros or functions performing
 // the following atomic operations with a full memory barrier. 

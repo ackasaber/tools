@@ -53,9 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifdef HAVE_CONFIG_H
-# include "config.h"
-#endif
+#include "config.h"
 #if NEED_GNUG_PRAGMAS
 # pragma implementation
 #endif

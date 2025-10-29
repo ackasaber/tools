@@ -59,9 +59,7 @@
 // Our original implementation consisted of multiple classes.
 // <http://prdownloads.sourceforge.net/djvu/DjVu2_2b-src.tgz>.
 
-#ifdef HAVE_CONFIG_H
-# include "config.h"
-#endif
+#include "config.h"
 #if NEED_GNUG_PRAGMAS
 # pragma implementation
 #endif
