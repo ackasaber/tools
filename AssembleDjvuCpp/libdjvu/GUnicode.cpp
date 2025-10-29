@@ -61,12 +61,7 @@
 #include <iconv.h>
 #endif
 
-#ifdef HAVE_NAMESPACES
 namespace DJVU {
-# ifdef NOT_DEFINED // Just to fool emacs c++ mode
-}
-#endif
-#endif
 
 static unsigned char nill=0;
 
@@ -786,10 +781,4 @@ GUTF8String::create( void const * const buf,
   return retval;
 }
 
-
-#ifdef HAVE_NAMESPACES
 }
-# ifndef NOT_USING_DJVU_NAMESPACE
-using namespace DJVU;
-# endif
-#endif

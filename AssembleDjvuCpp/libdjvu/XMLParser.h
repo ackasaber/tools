@@ -62,12 +62,7 @@
 #include "GContainer.h"
 #include "GURL.h"
 
-#ifdef HAVE_NAMESPACES
 namespace DJVU {
-# ifdef NOT_DEFINED // Just to fool emacs c++ mode
-}
-#endif
-#endif
 
 class ByteStream;
 class lt_XMLTags;
@@ -104,10 +99,4 @@ public:
     void * const arg,mapOCRcallback * const );
 };
 
-
-#ifdef HAVE_NAMESPACES
 }
-# ifndef NOT_USING_DJVU_NAMESPACE
-using namespace DJVU;
-# endif
-#endif

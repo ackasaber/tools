@@ -64,15 +64,9 @@
 #include "GBitmap.h"
 #include "GPixmap.h"
 
-#ifdef HAVE_NAMESPACES
 namespace DJVU {
-# ifdef NOT_DEFINED // Just to fool emacs c++ mode
-}
-#endif
-#endif
 
-
-/** @name GScaler.h 
+/** @name GScaler.h
 
     Files #"GScaler.h"# and #"GScaler.cpp"# implement a fast bilinear
     interpolation scheme to rescale a \Ref{GBitmap} or a \Ref{GPixmap}.
@@ -304,9 +298,4 @@ protected:
 
 // -------- END
 
-#ifdef HAVE_NAMESPACES
 }
-# ifndef NOT_USING_DJVU_NAMESPACE
-using namespace DJVU;
-# endif
-#endif

@@ -67,14 +67,7 @@
 #include <stdio.h>
 #include <string.h>
 
-
-#ifdef HAVE_NAMESPACES
 namespace DJVU {
-# ifdef NOT_DEFINED // Just to fool emacs c++ mode
-}
-#endif
-#endif
-
 
 // ========================================
 // --- Assertion
@@ -994,10 +987,4 @@ BSByteStream::Encode::write(const void *buffer, size_t sz)
   return copied;
 }
 
-
-#ifdef HAVE_NAMESPACES
 }
-# ifndef NOT_USING_DJVU_NAMESPACE
-using namespace DJVU;
-# endif
-#endif

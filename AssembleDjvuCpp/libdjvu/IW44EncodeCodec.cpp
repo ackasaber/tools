@@ -84,13 +84,7 @@
 #include <math.h>
 
 #ifndef NEED_DECODER_ONLY
-
-
-#ifdef HAVE_NAMESPACES
 namespace DJVU {
-# ifdef NOT_DEFINED // Just to fool emacs c++ mode
-}
-#endif
 #endif
 
 #define IWALLOCSIZE    4080
@@ -1781,13 +1775,5 @@ IW44Image::Codec::Encode::code_slice(ZPCodec &zp)
   return finish_code_slice(zp);
 }
 
-
-
-#ifdef HAVE_NAMESPACES
 }
-# ifndef NOT_USING_DJVU_NAMESPACE
-using namespace DJVU;
-# endif
-#endif
-#endif // NEED_DECODER_ONLY
 

@@ -59,14 +59,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-
-#ifdef HAVE_NAMESPACES
 namespace DJVU {
-# ifdef NOT_DEFINED // Just to fool emacs c++ mode
-}
-#endif
-#endif
-
 
 DjVuFileCache::~DjVuFileCache(void) {}
 
@@ -247,10 +240,5 @@ DjVuFileCache::file_deleted(const GP<DjVuFile> &) {}
 void
 DjVuFileCache::file_cleared(const GP<DjVuFile> &) {}
 
-#ifdef HAVE_NAMESPACES
 }
-# ifndef NOT_USING_DJVU_NAMESPACE
-using namespace DJVU;
-# endif
-#endif
 

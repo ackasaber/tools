@@ -59,14 +59,7 @@
 #include "DjVuInfo.h"
 #include "IFFByteStream.h"
 
-
-#ifdef HAVE_NAMESPACES
 namespace DJVU {
-# ifdef NOT_DEFINED // Just to fool emacs c++ mode
-}
-#endif
-#endif
-
 
 #ifdef putchar
 #undef putchar
@@ -355,10 +348,4 @@ DjVuDumpHelper::dump(GP<ByteStream> gstr)
    return out_str;
 }
 
-
-#ifdef HAVE_NAMESPACES
 }
-# ifndef NOT_USING_DJVU_NAMESPACE
-using namespace DJVU;
-# endif
-#endif

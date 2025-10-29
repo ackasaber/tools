@@ -61,13 +61,7 @@
 #include "GURL.h"
 #include "debug.h"
 
-#ifdef HAVE_NAMESPACES
 namespace DJVU {
-# ifdef NOT_DEFINED // Just to fool emacs c++ mode
-}
-#endif
-#endif
-
 
 GP<DjVmNav::DjVuBookMark>
 DjVmNav::DjVuBookMark::create(void)
@@ -321,10 +315,4 @@ DjVmNav::get_tree(int index, int* count_array, int count_array_size)
   return 0;
 }
 
-
-#ifdef HAVE_NAMESPACES
 }
-# ifndef NOT_USING_DJVU_NAMESPACE
-using namespace DJVU;
-# endif
-#endif

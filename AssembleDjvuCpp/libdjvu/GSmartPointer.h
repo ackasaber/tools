@@ -93,14 +93,7 @@
 
 #include <stddef.h>
 
-#ifdef HAVE_NAMESPACES
 namespace DJVU {
-# ifdef NOT_DEFINED // Just to fool emacs c++ mode
-}
-#endif
-#endif
-
-
 
 /** Base class for reference counted objects.  
     This is the base class for all reference counted objects.
@@ -509,11 +502,4 @@ public:
   inline operator int(void) const {return GPBufferBase::operator int();}
 };
 
-
-
-#ifdef HAVE_NAMESPACES
 }
-# ifndef NOT_USING_DJVU_NAMESPACE
-using namespace DJVU;
-# endif
-#endif

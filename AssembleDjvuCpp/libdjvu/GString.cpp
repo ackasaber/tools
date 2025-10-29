@@ -89,14 +89,7 @@
 # define DO_CHANGELOCALE 0
 #endif
 
-
-#ifdef HAVE_NAMESPACES
 namespace DJVU {
-# ifdef NOT_DEFINED // Just to fool emacs c++ mode
-}
-#endif
-#endif
-
 
 GBaseString::~GBaseString() {}
 GNativeString::~GNativeString() {}
@@ -2713,10 +2706,4 @@ GNativeString::setat(const int n, const char ch)
 
 #endif
 
-
-#ifdef HAVE_NAMESPACES
 }
-# ifndef NOT_USING_DJVU_NAMESPACE
-using namespace DJVU;
-# endif
-#endif

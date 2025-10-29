@@ -83,15 +83,7 @@ extern "C" {
 #include "GString.h"
 #endif // LIBJPEGNAME
 
-
-
-#ifdef HAVE_NAMESPACES
 namespace DJVU {
-# ifdef NOT_DEFINED // Just to fool emacs c++ mode
-}
-#endif
-#endif
-
 
 class JPEGDecoder::Impl : public JPEGDecoder
 {
@@ -390,13 +382,4 @@ JPEGDecoder::jpeg_start_decompress(j_decompress_ptr x)
 
 #endif // LIBJPEGNAME
 
-
-#ifdef HAVE_NAMESPACES
 }
-# ifndef NOT_USING_DJVU_NAMESPACE
-using namespace DJVU;
-# endif
-#endif
-
-#endif
-
