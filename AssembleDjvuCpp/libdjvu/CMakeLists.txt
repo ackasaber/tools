@@ -15,8 +15,6 @@ add_library(djvulibre STATIC
         CMakeLists.txt
         DataPool.cpp
         DataPool.h
-        ddjvuapi.cpp
-        ddjvuapi.h
         debug.cpp
         debug.h
         DjVmDir0.cpp
