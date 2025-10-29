@@ -53,8 +53,6 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#include "config.h"
-
 #include "DjVuDocEditor.h"
 #include "DjVuImage.h"
 #include "IFFByteStream.h"

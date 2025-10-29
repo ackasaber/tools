@@ -53,8 +53,6 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#include "config.h"
-
 // -- Implementation of IFFByteStream
 // - Author: Leon Bottou, 06/1998
 

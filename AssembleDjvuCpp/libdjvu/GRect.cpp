@@ -53,11 +53,8 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#include "config.h"
-
 // -- Implementation of class GRect and GRectMapper
 // - Author: Leon Bottou, 05/1997
-
 
 #include "GRect.h"
 #include "GException.h"

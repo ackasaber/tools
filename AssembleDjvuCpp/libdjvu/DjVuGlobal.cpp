@@ -53,11 +53,9 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#include "config.h"
-
-/** This file impliments the DjVuProgressTask elements.  The memory
-    functions are implimented in a separate file, because only the memory
-    functions should be compiled with out overloading of the memory functions.
+/** This file implements the DjVuProgressTask elements.  The memory
+    functions are implemented in a separate file, because only the memory
+    functions should be compiled without overloading of the memory functions.
  */
   
 

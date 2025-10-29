@@ -53,8 +53,6 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#include "config.h"
-
 // From: Leon Bottou, 1/31/2002
 // This has been heavily changed by Lizardtech.
 // They decided to use URLs for everyting, including

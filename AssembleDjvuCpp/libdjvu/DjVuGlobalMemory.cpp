@@ -53,8 +53,6 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#include "config.h"
-
 #ifdef NEED_DJVU_MEMORY
 #ifndef NEED_DJVU_MEMORY_IMPLEMENTATION
 #define NEED_DJVU_MEMORY_IMPLEMENTATION

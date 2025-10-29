@@ -53,12 +53,8 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#include "config.h"
-
 // -- Implements class PIXMAP
 // Author: Leon Bottou 07/1997
-
-
 
 #include "GPixmap.h"
 

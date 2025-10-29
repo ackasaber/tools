@@ -53,8 +53,6 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#include "config.h"
-
 // From: Leon Bottou, 1/31/2002
 // All these I18N XML messages are Lizardtech innovations.
 // For DjvuLibre, I changed the path extraction logic

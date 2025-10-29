@@ -62,8 +62,6 @@
 // attempt to use the type system to enforce coding policies.
 // This could be fixed.  But there are better things to do in djvulibre.
 
-#include "config.h"
-
 #include "GString.h"
 #include "GThreads.h"
 #include "debug.h"

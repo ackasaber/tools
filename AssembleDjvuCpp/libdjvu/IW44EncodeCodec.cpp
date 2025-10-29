@@ -53,8 +53,6 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#include "config.h"
-
 // - Author: Leon Bottou, 08/1998
 // From: Leon Bottou, 1/31/2002
 // Lizardtech has split this file into a decoder and an encoder.

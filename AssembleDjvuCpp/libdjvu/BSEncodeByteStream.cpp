@@ -53,11 +53,7 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#include "config.h"
-
 // - Author: Leon Bottou, 07/1998
-
-
 
 #include "BSByteStream.h"
 #include "GString.h"

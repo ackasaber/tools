@@ -53,8 +53,6 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#include "config.h"
-
 // - Author: Leon Bottou, 05/1997
 
 // From: Leon Bottou, 1/31/2002

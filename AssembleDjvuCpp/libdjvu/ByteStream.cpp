@@ -59,8 +59,6 @@
 // Our original implementation consisted of multiple classes.
 // <http://prdownloads.sourceforge.net/djvu/DjVu2_2b-src.tgz>.
 
-#include "config.h"
-
 // - Author: Leon Bottou, 04/1997
 
 #include "DjVuGlobal.h"
