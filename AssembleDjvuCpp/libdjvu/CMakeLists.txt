@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 4.0)
 project(DjvuLibre VERSION 3.5.29)
 
+include(CheckIncludeFile)
+check_include_file(cpuid.h HAVE_CPUID_H)
 configure_file(config.h.in config.h)
+
 add_library(djvulibre STATIC
         Arrays.cpp
         Arrays.h
