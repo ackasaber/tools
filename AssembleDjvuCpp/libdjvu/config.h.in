@@ -3,9 +3,6 @@
 /* version string */
 #define DJVULIBRE_VERSION "${PROJECT_VERSION}"
 
-/* define if bool is a built-in type */
-#undef HAVE_BOOL
-
 /* Define to 1 if you have the <cpuid.h> header file. */
 #undef HAVE_CPUID_H
 
@@ -288,13 +285,6 @@
 #define AUTOCONF 1
 #if defined(__CYGWIN32__) || !defined(_WIN32)
 # define UNIX 1
-#endif
-
-/* - BOOL */
-#if !defined(HAVE_BOOL) && !defined(bool)
-#define bool  char
-#define true  1
-#define false 0
 #endif
 
 /* - WCHAR etc.*/
