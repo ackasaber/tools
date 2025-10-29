@@ -54,9 +54,6 @@
 //C- +------------------------------------------------------------------
 
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma implementation
-#endif
 
 #include "DjVuImage.h"
 #include "GScaler.h"

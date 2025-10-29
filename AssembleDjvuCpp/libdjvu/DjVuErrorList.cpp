@@ -54,9 +54,6 @@
 //C- +------------------------------------------------------------------
 
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma implementation
-#endif
 
 #include "DjVuErrorList.h"
 #include "DjVmDoc.h"

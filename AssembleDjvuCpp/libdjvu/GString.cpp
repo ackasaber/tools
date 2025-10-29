@@ -63,9 +63,6 @@
 // This could be fixed.  But there are better things to do in djvulibre.
 
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma implementation
-#endif
 
 #include "GString.h"
 #include "GThreads.h"

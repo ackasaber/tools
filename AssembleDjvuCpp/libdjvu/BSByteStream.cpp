@@ -54,9 +54,6 @@
 //C- +------------------------------------------------------------------
 
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma implementation
-#endif
 
 // - Author: Leon Bottou, 07/1998
 

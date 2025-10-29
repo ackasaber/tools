@@ -60,9 +60,6 @@
 // <http://prdownloads.sourceforge.net/djvu/DjVu2_2b-src.tgz>.
 
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma implementation
-#endif
 
 // - Author: Leon Bottou, 04/1997
 

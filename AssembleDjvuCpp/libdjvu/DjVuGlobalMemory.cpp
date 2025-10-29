@@ -54,9 +54,6 @@
 //C- +------------------------------------------------------------------
 
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma implementation
-#endif
 
 #ifdef NEED_DJVU_MEMORY
 #ifndef NEED_DJVU_MEMORY_IMPLEMENTATION

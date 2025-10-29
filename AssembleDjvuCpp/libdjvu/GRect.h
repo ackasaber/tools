@@ -55,10 +55,6 @@
 
 #pragma once
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma interface
-#endif
-
 
 /** @name GRect.h
     Files #"GRect.h"# and #"GRect.cpp"# implement basic operations on

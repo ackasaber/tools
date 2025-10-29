@@ -54,9 +54,6 @@
 //C- +------------------------------------------------------------------
 
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma implementation
-#endif
 
 // Rescale images with fast bilinear interpolation
 // From: Leon Bottou, 1/31/2002

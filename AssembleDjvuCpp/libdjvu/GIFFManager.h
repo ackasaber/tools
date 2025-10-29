@@ -55,10 +55,6 @@
 
 #pragma once
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma interface
-#endif
-
 
 #include "IFFByteStream.h"
 #include "GContainer.h"

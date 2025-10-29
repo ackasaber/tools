@@ -54,9 +54,6 @@
 //C- +------------------------------------------------------------------
 
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma implementation
-#endif
 
 // From: Leon Bottou, 1/31/2002
 // Lizardtech has split the corresponding cpp file into a decoder and an encoder.

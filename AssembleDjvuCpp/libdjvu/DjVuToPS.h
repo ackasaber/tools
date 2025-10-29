@@ -55,9 +55,6 @@
 
 #pragma once
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma interface
-#endif
 
 /** @name DjVuToPS.h
     Files #"DjVuToPS.h"# and #"DjVuToPS.cpp"# implement code that can be

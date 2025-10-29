@@ -54,10 +54,6 @@
 //C- +------------------------------------------------------------------
 
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma interface
-#endif
-
 
 /** @name DjVuInfo.h
     Each instance of class #DjVuInfo# represents the information

@@ -55,9 +55,6 @@
 
 #pragma once
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma interface
-#endif
 
 /** @name GOS.h
     Files #"GOS.h"# and #"GOS.cpp"# implement operating system 

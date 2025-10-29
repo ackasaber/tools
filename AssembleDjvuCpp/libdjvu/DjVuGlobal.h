@@ -55,9 +55,6 @@
 
 #pragma once
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma interface
-#endif
 
 #if defined(HAVE_STDINCLUDES)
 # include <new>

@@ -55,10 +55,6 @@
 
 #pragma once
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma interface
-#endif
-
 
 /** @name DjVuDupmHelper.h
     This file contains code capable of generating information on

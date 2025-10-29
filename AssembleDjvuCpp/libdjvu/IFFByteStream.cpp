@@ -54,9 +54,6 @@
 //C- +------------------------------------------------------------------
 
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma implementation
-#endif
 
 // -- Implementation of IFFByteStream
 // - Author: Leon Bottou, 06/1998

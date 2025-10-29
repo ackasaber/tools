@@ -55,9 +55,6 @@
 
 #pragma once
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma interface
-#endif
 
 // From: Leon Bottou, 1/31/2002
 // This is purely Lizardtech stuff.

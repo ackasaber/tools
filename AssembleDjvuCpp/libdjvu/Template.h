@@ -61,9 +61,6 @@
 
 #pragma once
 #include "config.h"
-#if NEED_GNUG_PRAGMAS
-# pragma interface
-#endif
 
 //T// Always include "DjVuGlobal.h"
 #include "DjVuGlobal.h"
