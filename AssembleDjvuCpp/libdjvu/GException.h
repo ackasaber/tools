@@ -105,11 +105,6 @@
 
 #include "DjVuGlobal.h"
 
-// Check if compiler supports native exceptions
-#ifndef HAVE_EXCEPTIONS
-# define USE_EXCEPTION_EMULATION 1
-#endif
-
 namespace DJVU {
 
 /** Exception class.  
@@ -196,17 +191,6 @@ private:
 
 //@}
 
-#undef G_TRY
-#undef G_CATCH
-#undef G_CATCH_ALL
-#undef G_ENDCATCH
-#undef G_RETHROW
-#undef G_THROW
-
-#ifdef USE_EXCEPTION_EMULATION
-# error "Libdjvulibre requires c++ exceptions"
-#else
-
 // Compiler supports ANSI C++ exceptions.
 // Defined exception macros accordingly.
 
@@ -220,8 +204,6 @@ private:
 # else
 #  define G_THROW(msg) throw GException(msg,__FILE__,__LINE__)
 # endif
-
-#endif
 
 
 // -------------- THE END

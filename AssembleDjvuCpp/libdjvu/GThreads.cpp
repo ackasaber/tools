@@ -72,12 +72,6 @@
 // ----------------------------------------
 // Consistency check
 
-#ifdef USE_EXCEPTION_EMULATION
-# if defined(WINTHREADS) || defined(POSIXTHREADS)
-#  warning "Compiler must support thread safe exceptions"
-# endif
-#endif
-
 #ifndef _DEBUG
 # if defined(DEBUG) 
 #  define _DEBUG /* */

@@ -6,9 +6,6 @@
 /* Define to 1 if you have the <cpuid.h> header file. */
 #cmakedefine HAVE_CPUID_H
 
-/* define if the compiler supports exceptions */
-#undef HAVE_EXCEPTIONS
-
 /* Define to 1 if you have the 'fork' function. */
 #undef HAVE_FORK
 
