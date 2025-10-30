@@ -100,8 +100,6 @@ add_library(djvulibre STATIC
         JB2Image.h
         JPEGDecoder.cpp
         JPEGDecoder.h
-        miniexp.cpp
-        miniexp.h
         MMRDecoder.cpp
         MMRDecoder.h
         MMX.cpp
