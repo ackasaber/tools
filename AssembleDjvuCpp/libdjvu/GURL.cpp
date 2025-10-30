@@ -111,38 +111,8 @@
 #    include <time.h>
 #   endif
 #  endif
-#  ifdef HAVE_DIRENT_H
-#   include <dirent.h>
-#   define NAMLEN(dirent) strlen((dirent)->d_name)
-#  else
-#   define dirent direct
-#   define NAMLEN(dirent) (dirent)->d_namlen
-#   ifdef HAVE_SYS_NDIR_H
-#    include <sys/ndir.h>
-#   endif
-#   ifdef HAVE_SYS_DIR_H
-#    include <sys/dir.h>
-#   endif
-#   ifdef HAVE_NDIR_H
-#    include <ndir.h>
-#   endif
-#  endif
-# else /* !AUTOCONF */ 
+# else /* !AUTOCONF */
 #  include <sys/time.h>
-#  if defined(XENIX)
-#   define USE_DIRECT
-#   include <sys/ndir.h>
-#  elif defined(OLDBSD)
-#   define USE_DIRECT
-#   include <sys/dir.h>
-#  endif
-#  ifdef USE_DIRECT
-#   define dirent direct
-#   define NAMLEN(dirent) (dirent)->d_namlen
-#  else
-#   include <dirent.h>
-#   define NAMLEN(dirent) strlen((dirent)->d_name)
-#  endif 
 # endif /* !AUTOCONF */
 #endif /* UNIX */
 
@@ -1555,77 +1525,6 @@ GURL::deletefile(void) const
 #else
 # error "Define something here for your operating system"
 #endif
-  }
-  return retval;
-}
-
-GList<GURL>
-GURL::listdir(void) const
-{
-  GList<GURL> retval;
-  if(is_dir())
-  {
-#if defined(UNIX) || defined(OS2)
-    DIR * dir=opendir(NativeFilename());//MBCS cvt
-    for(dirent *de=readdir(dir);de;de=readdir(dir))
-    {
-      const int len = NAMLEN(de);
-      if (de->d_name[0]== dot  && len==1)
-        continue;
-      if (de->d_name[0]== dot  && de->d_name[1]== dot  && len==2)
-        continue;
-      retval.append(GURL::Native(de->d_name,*this));
-    }
-    closedir(dir);
-#elif defined(_WIN32)
-    GURL::UTF8 wildcard("*.*",*this);
-    WIN32_FIND_DATA finddata;
-    HANDLE handle = FindFirstFile(wildcard.NativeFilename(), &finddata);//MBCS cvt
-    const GUTF8String gpathname=pathname();
-    const GUTF8String gbase=base().pathname();
-    if( handle != INVALID_HANDLE_VALUE)
-    {
-      do
-      {
-        GURL::UTF8 Entry(finddata.cFileName,*this);
-        const GUTF8String gentry=Entry.pathname();
-        if((gentry != gpathname) && (gentry != gbase))
-          retval.append(Entry);
-      } while( FindNextFile(handle, &finddata) );
-
-      FindClose(handle);
-    }
-#else
-# error "Define something here for your operating system"
-#endif
-  }
-  return retval;
-}
-
-int
-GURL::cleardir(const int timeout) const
-{
-  int retval=(-1);
-  if(is_dir())
-  {
-    GList<GURL> dirlist=listdir();
-    retval=0;
-    for(GPosition pos=dirlist;pos&&!retval;++pos)
-    {
-      const GURL &Entry=dirlist[pos];
-      if(Entry.is_dir())
-      {
-        if((retval=Entry.cleardir(timeout)) < 0)
-        {
-          break;
-        }
-      }
-      if(((retval=Entry.deletefile())<0) && (timeout>0))
-      {
-        GOS::sleep(timeout);
-        retval=Entry.deletefile();
-      }
-    }
   }
   return retval;
 }

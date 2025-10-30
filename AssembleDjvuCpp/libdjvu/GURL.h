@@ -311,15 +311,8 @@ public:
       Returns a negative number if an error occurs. */
   int deletefile(void) const;
 
-  /** Recursively erases contents of directory. The directory
-      itself will not be removed. */
-  int cleardir(const int timeout=0) const;
-
   /// Rename a file or directory.
   int renameto(const GURL &newurl) const;
-
-  /// List the contents of a directory. 
-  GList<GURL> listdir(void) const;
 
   /** Returns a filename for a URL. Argument #url# must be a legal file URL.
       This function applies heuristic rules to convert the URL into a valid
