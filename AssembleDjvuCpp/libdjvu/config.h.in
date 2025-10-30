@@ -6,18 +6,6 @@
 /* Define to 1 if you have the <cpuid.h> header file. */
 #cmakedefine HAVE_CPUID_H
 
-/* Define to 1 if you have the 'gethostname' function. */
-#undef HAVE_GETHOSTNAME
-
-/* Define to 1 if you have the <getopt.h> header file. */
-#undef HAVE_GETOPT_H
-
-/* Define to 1 if you have the 'getpagesize' function. */
-#undef HAVE_GETPAGESIZE
-
-/* Define to 1 if you have the 'getpwuid' function. */
-#undef HAVE_GETPWUID
-
 /* Define to 1 if you have the iconv function. */
 #undef HAVE_ICONV
 
