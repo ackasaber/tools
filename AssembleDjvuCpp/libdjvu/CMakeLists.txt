@@ -3,6 +3,7 @@ project(DjvuLibre VERSION 3.5.29)
 
 include(CheckIncludeFile)
 check_include_file(cpuid.h HAVE_CPUID_H)
+check_include_file(iconv.h HAVE_ICONV)
 configure_file(config.h.in config.h)
 
 add_library(djvulibre STATIC

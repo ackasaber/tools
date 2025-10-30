@@ -7,10 +7,7 @@
 #cmakedefine HAVE_CPUID_H
 
 /* Define to 1 if you have the iconv function. */
-#undef HAVE_ICONV
-
-/* Define to 1 if you have the <iconv.h> header file. */
-#undef HAVE_ICONV_H
+#cmakedefine HAVE_ICONV
 
 /* define if the compiler supports intel atomic builtins */
 #undef HAVE_INTEL_ATOMIC_BUILTINS
@@ -255,11 +252,6 @@
 #if defined(HAVE_MBSTATE_T) && defined(HAVE_WCRTOMB)
 #define HAS_MBSTATE 1
 #endif
-#endif
-#if defined(HAVE_ICONV_H) && defined(HAVE_ICONV)
-#define HAS_ICONV 1
-#else
-#define HAS_ICONV 0
 #endif
 
 /* - I18N MESSAGES HELL */
