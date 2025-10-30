@@ -6,12 +6,6 @@
 /* Define to 1 if you have the <cpuid.h> header file. */
 #cmakedefine HAVE_CPUID_H
 
-/* Define to 1 if you have the 'fork' function. */
-#undef HAVE_FORK
-
-/* Define to 1 if fseeko (and ftello) are declared in stdio.h. */
-#undef HAVE_FSEEKO
-
 /* define if the compiler supports keyword __thread */
 #undef HAVE_GCCTLS
 
