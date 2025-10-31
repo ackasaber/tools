@@ -55,6 +55,9 @@
 
 #pragma once
 #include "config.h"
+#include "DjVuGlobal.h"
+#include <atomic>
+#include <cstddef>
 
 /** @name GSmartPointer.h
 
@@ -81,17 +84,6 @@
     @args
 */
 //@{
-
-#if defined(_MSC_VER)
-// Language lawyer say MSVC6 is wrong on that one. 
-// Cf section 5.4.7 in november 1997 draft.
-#pragma warning( disable : 4243 )
-#endif
-
-#include "DjVuGlobal.h"
-#include "atomic.h"
-
-#include <stddef.h>
 
 namespace DJVU {
 
@@ -120,7 +112,7 @@ public:
   int get_count(void) const;
 protected:
   /// The reference counter
-  volatile int count;
+  std::atomic<int> count;
 };
 
 
@@ -324,7 +316,7 @@ GPEnabled::ref()
 #if PARANOID_DEBUG
   assert (count >= 0);
 #endif
-  atomicIncrement(&count);
+  ++count;
 }
 
 inline void 
@@ -333,7 +325,7 @@ GPEnabled::unref()
 #if PARANOID_DEBUG
   assert (count > 0);
 #endif
-  if (! atomicDecrement(&count))
+  if (--count == 0)
     destroy();
 }
 
