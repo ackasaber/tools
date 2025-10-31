@@ -77,15 +77,6 @@ namespace DJVU {
 #define GCONTAINER_ZERO_FILL 1
 #endif
 
-// Define typename when needed
-#ifndef GCONTAINER_NO_TYPENAME
-#define GCONTAINER_NO_TYPENAME 0
-#endif
-#if GCONTAINER_NO_TYPENAME
-#define typename /**/
-#endif
-
-
 /** @name GContainer.h
 
     Files #"GContainer.h"# and #"GContainer.cpp"# implement three main
