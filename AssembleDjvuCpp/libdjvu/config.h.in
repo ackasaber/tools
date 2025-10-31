@@ -9,12 +9,6 @@
 /* Define to 1 if you have the iconv function. */
 #cmakedefine HAVE_ICONV
 
-/* Define to 1 if you have the 'mkstemp' function. */
-#undef HAVE_MKSTEMP
-
-/* Define to 1 if you have a working 'mmap' system call. */
-#undef HAVE_MMAP
-
 /* Define to 1 if you have the <new.h> header file. */
 #undef HAVE_NEW_H
 
@@ -53,9 +47,6 @@
 
 /* Define to 1 if you have the <sys/ipc.h> header file. */
 #undef HAVE_SYS_IPC_H
-
-/* Define to 1 if you have the <sys/mman.h> header file. */
-#undef HAVE_SYS_MMAN_H
 
 /* Define to 1 if you have the <sys/param.h> header file. */
 #undef HAVE_SYS_PARAM_H
@@ -153,11 +144,4 @@
 /* - CONTAINERS */
 #ifndef HAVE_TYPENAME
 #define GCONTAINER_NO_TYPENAME 1
-#endif
-
-/* - MMAP */
-#if defined(HAVE_MMAP) && defined(HAVE_SYS_MMAN_H)
-#define HAS_MEMMAP 1
-#else
-#define HAS_MEMMAP 0
 #endif
