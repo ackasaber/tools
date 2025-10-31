@@ -9,15 +9,6 @@
 /* Define to 1 if you have the iconv function. */
 #cmakedefine HAVE_ICONV
 
-/* Define to 1 if you have the <langinfo.h> header file. */
-#undef HAVE_LANGINFO_H
-
-/* Define to 1 if you have the 'm' library (-lm). */
-#undef HAVE_LIBM
-
-/* Define to 1 if the system has the type 'long long int'. */
-#undef HAVE_LONG_LONG_INT
-
 /* define if the compiler supports member templates */
 #undef HAVE_MEMBER_TEMPLATES
 

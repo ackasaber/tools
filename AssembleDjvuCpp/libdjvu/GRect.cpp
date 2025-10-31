@@ -234,14 +234,9 @@ GRectMapper::GRatio::GRatio(int p, int q)
   q /= gcd;
 }
 
+typedef long long int llint_t;
 
-#ifdef HAVE_LONG_LONG_INT
-#define llint_t long long int
-#else
-#define llint_t long int
-#endif
-
-inline int 
+inline int
 operator*(int n, GRectMapper::GRatio r )
 { 
   /* [LB] -- This computation is carried out with integers and
