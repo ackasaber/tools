@@ -9,9 +9,6 @@
 /* Define to 1 if you have the iconv function. */
 #cmakedefine HAVE_ICONV
 
-/* define if the compiler supports member templates */
-#undef HAVE_MEMBER_TEMPLATES
-
 /* Define to 1 if you have the 'mkstemp' function. */
 #undef HAVE_MKSTEMP
 
@@ -154,9 +151,6 @@
 #define HAS_CTRL_C_IN_ERR_MSG 1
 
 /* - CONTAINERS */
-#ifndef HAVE_MEMBER_TEMPLATES
-#define GCONTAINER_NO_MEMBER_TEMPLATES 1
-#endif
 #ifndef HAVE_TYPENAME
 #define GCONTAINER_NO_TYPENAME 1
 #endif
