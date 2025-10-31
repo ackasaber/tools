@@ -53,8 +53,6 @@
 //C- | MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 //C- +------------------------------------------------------------------
 
-#ifdef NEED_JPEG_DECODER
-
 #include "GSmartPointer.h"
 #include "ByteStream.h"
 #include "GPixmap.h"

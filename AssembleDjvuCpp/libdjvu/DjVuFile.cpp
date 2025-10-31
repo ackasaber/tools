@@ -57,9 +57,7 @@
 #include "IFFByteStream.h"
 #include "GOS.h"
 #include "MMRDecoder.h"
-#ifdef NEED_JPEG_DECODER
 #include "JPEGDecoder.h"
-#endif
 #include "DjVuAnno.h"
 #include "DjVuText.h"
 #include "DataPool.h"
@@ -1001,30 +999,22 @@ DjVuFile::decode_chunk( const GUTF8String &id, const GP<ByteStream> &gbs,
     if (bg44 || bgpm)
       G_THROW( ERR_MSG("DjVuFile.dupl_backgrnd") );
     set_can_compress(true);
-#ifdef NEED_JPEG_DECODER
     this->bgpm = JPEGDecoder::decode(bs);
     desc.format( ERR_MSG("DjVuFile.JPEG_bg1") "\t%d\t%d\t%d",
       bgpm->columns(), bgpm->rows(),
       get_dpi(bgpm->columns(), bgpm->rows()));
-#else
-    desc.format( ERR_MSG("DjVuFile.JPEG_bg2") );
-#endif
-  } 
+  }
   
   // FGjp (foreground JPEG)
   else if (chkid == "FGjp" && (djvu || djvi))
   {
     if (fgpm || fgbc)
       G_THROW( ERR_MSG("DjVuFile.dupl_foregrnd") );
-#ifdef NEED_JPEG_DECODER
     this->fgpm = JPEGDecoder::decode(bs);
     desc.format( ERR_MSG("DjVuFile.JPEG_fg1") "\t%d\t%d\t%d",
       fgpm->columns(), fgpm->rows(),
       get_dpi(fgpm->columns(), fgpm->rows()));
-#else
-    desc.format( ERR_MSG("DjVuFile.JPEG_fg2") );
-#endif
-  } 
+  }
   
   // BG2k (background JPEG-2000) Note: JPEG2K bitstream not finalized.
   else if (chkid == "BG2k" && (djvu || djvi))

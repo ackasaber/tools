@@ -9,9 +9,6 @@
 /* Define to 1 if you have the iconv function. */
 #cmakedefine HAVE_ICONV
 
-/* Define if you have the IJG JPEG library. */
-#undef HAVE_JPEG
-
 /* Define to 1 if you have the <langinfo.h> header file. */
 #undef HAVE_LANGINFO_H
 
@@ -171,11 +168,6 @@
 #endif
 #ifndef HAVE_TYPENAME
 #define GCONTAINER_NO_TYPENAME 1
-#endif
-
-/* - JPEG */
-#ifdef HAVE_JPEG
-#define NEED_JPEG_DECODER 1
 #endif
 
 /* - MMAP */

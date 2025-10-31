@@ -476,14 +476,9 @@ GPixmap::init(ByteStream &bs)
       init(*bm);
       return;
     default:
-#ifdef NEED_JPEG_DECODER
       bs.seek(0L);
       JPEGDecoder::decode(bs,*this);
       return;
-#else
-      
-      G_THROW( ERR_MSG("GPixmap.unk_PPM") );
-#endif
     }
   // Read image size
   char lookahead = '\n';
