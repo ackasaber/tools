@@ -121,27 +121,6 @@
 
 namespace DJVU {
 
-#if defined(AUTOCONF) && !defined(HAVE_STRERROR)
-# define NEED_STRERROR
-#elif defined(sun) && !defined(__svr4__) && !defined(__SVR4)
-# define NEED_STRERROR
-#elif defined(REIMPLEMENT_STRERROR)
-# define NEED_STRERROR
-#endif
-#ifdef NEED_STRERROR
-char *
-strerror(int errno)
-{
-  extern int sys_nerr;
-  extern char *sys_errlist[];
-  if (errno>0 && errno<sys_nerr) 
-    return sys_errlist[errno];
-  return (char*) "unknown stdio error";
-}
-#endif
-
-
-
 // -----------------------------------------
 // Functions for dealing with filenames
 // -----------------------------------------

@@ -83,13 +83,11 @@
 #include "GException.h"
 
 // Known platforms
-# ifdef _WIN32
-#  define WINTHREADS 1
-# elif HAVE_PTHREAD
-#  define POSIXTHREADS 1
-# else
-#  error "Libdjvu requires thread support"
-# endif
+#ifdef _WIN32
+# define WINTHREADS 1
+#elif
+# define POSIXTHREADS 1
+#endif
 
 
 // ----------------------------------------
