@@ -1558,14 +1558,6 @@ GStringRep::setat(int n, char ch) const
   return retval;
 }
 
-#if defined(AUTOCONF) && defined(HAVE_VSNPRINTF)
-# define USE_VSNPRINTF vsnprintf
-#elif defined(_WIN32) && !defined(__CYGWIN32__)
-# define USE_VSNPRINTF _vsnprintf
-#elif defined(linux)
-# define USE_VSNPRINTF vsnprintf
-#endif
- 
 GUTF8String &
 GUTF8String::format(const char fmt[], ... )
 {
@@ -1594,14 +1586,12 @@ GStringRep::vformat(va_list args) const
     GPBuffer<char> gbuffer(buffer,buflen);
     ChangeLocale locale(LC_NUMERIC,(isNative()?0:"C"));
     // Format string
-#ifdef USE_VSNPRINTF
-    while(USE_VSNPRINTF(buffer, buflen, fmt, args)<0)
+    while(vsnprintf(buffer, buflen, fmt, args)<0)
       {
         gbuffer.resize(0);
         gbuffer.resize(buflen+32768);
       }
     va_end(args);
-#else
     buffer[buflen-1] = 0;
     vsprintf(buffer, fmt, args);
     va_end(args);
