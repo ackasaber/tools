@@ -120,20 +120,7 @@
 # include <wchar.h>
 #endif
 
-#if HAVE_STDINT_H
-# include <stdint.h>
-#elif HAVE_INTTYPES_H
-# include <inttypes.h>
-#else
-# ifdef _WIN32
-typedef unsigned __int32 uint32_t;
-typedef unsigned __int16 uint16_t;
-# else
-# pragma message("Please verify defs for uint32_t and uint16_t")
-typedef unsigned int   uint32_t; // verify
-typedef unsigned short uint16_t; // verify
-# endif
-#endif
+#include <cstdint>
 
 namespace DJVU {
 
