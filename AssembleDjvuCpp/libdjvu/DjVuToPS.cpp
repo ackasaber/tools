@@ -1899,11 +1899,7 @@ print_ps_string(const char *data, int length, ByteStream &out)
       else
         {
           char buffer[5];
-#if HAVE_SNPRINTF
           snprintf(buffer, sizeof(buffer), "\\%03o", *(unsigned char*)data);
-#else
-          sprintf(buffer, "\\%03o", *(unsigned char*)data);
-#endif
           out.write(buffer,4);
           data += 1;
           length -= 1;

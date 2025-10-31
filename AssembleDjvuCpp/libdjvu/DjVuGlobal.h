@@ -56,13 +56,7 @@
 #pragma once
 #include "config.h"
 
-#if defined(HAVE_STDINCLUDES)
-# include <new>
-#elif defined(HAVE_NEW_H)
-# include <new.h>
-#else
-# include <new> // try standard c++ anyway!
-#endif
+#include <new>
 
 #ifndef DJVUAPI
 # ifdef _WIN32

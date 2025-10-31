@@ -70,15 +70,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#if HAS_WCHAR
-# include <locale.h>
-# if !defined(AUTOCONF) || HAVE_WCHAR_H
-#  include <wchar.h>
-# endif
-# if HAS_WCTYPE
-#  include <wctype.h>
-# endif
-#endif
+#include <clocale>
+#include <cwchar>
+#include <cwctype>
 #include <ctype.h>
 
 #ifndef LC_NUMERIC          //MingW
@@ -1266,11 +1260,7 @@ GStringRep::nextCharType(
 bool
 GStringRep::giswspace(const unsigned long w)
 {
-#if HAS_WCTYPE
   return !!iswspace((wchar_t)w);
-#else
-  return (w & ~0xff) ? false : !!isspace((int)(w & 0xff));
-#endif
 }
 
 bool
@@ -1855,11 +1845,7 @@ GStringRep::UTF8::toNative(const EscapeMode escape) const
               {
                 if (escape == IS_ESCAPED)
                   {
-#if HAVE_SNPRINTF
                     snprintf((char *)r, 14, "&#%lu;", (unsigned long)w0);
-#else
-                    sprintf((char *)r,"&#%lu;", (unsigned long)w0);
-#endif
                     r += strlen((char *)r);
                   }
                 else

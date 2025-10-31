@@ -107,28 +107,12 @@
 #include <stdarg.h>
 #ifdef _WIN32
 # include <windows.h>
-# ifndef AUTOCONF
-#  define HAS_WCHAR 1
-#  define HAS_WCTYPE 1
-#  define HAS_MBSTATE 1
-# endif
 #endif
 
-#if HAS_WCHAR
-# include <wchar.h>
-#elif HAVE_WCHAR_H
-# include <wchar.h>
-#endif
-
+#include <cwchar>
 #include <cstdint>
 
 namespace DJVU {
-
-#if !HAS_MBSTATE
-# ifndef HAVE_MBSTATE_T
-typedef int mbstate_t;
-# endif
-#endif
 
 class GBaseString;
 class GUTF8String;
