@@ -77,7 +77,7 @@ GArrayBase::GArrayBase(const GArrayBase &ref)
 }
 
 
-GArrayBase::GArrayBase(const GCONT Traits &traits)
+GArrayBase::GArrayBase(const Traits &traits)
   : traits(traits), data(0),
     minlo(0), maxhi(-1),
     lobound(0), hibound(-1)
@@ -85,7 +85,7 @@ GArrayBase::GArrayBase(const GCONT Traits &traits)
 }
 
 
-GArrayBase::GArrayBase(const GCONT Traits &traits, int lobound, int hibound)
+GArrayBase::GArrayBase(const Traits &traits, int lobound, int hibound)
   : traits(traits), data(0),
     minlo(0), maxhi(-1),
     lobound(0), hibound(-1)
@@ -645,14 +645,14 @@ GSetBase::~GSetBase()
 }
 
 
-GCONT HNode *
+GCont::HNode *
 GSetBase::hashnode(unsigned int hashcode) const
 {
   int bucket = hashcode % nbuckets;
   return table[bucket];
 }
 
-GCONT HNode *
+GCont::HNode *
 GSetBase::installnode(HNode *n)
 {
   // Rehash if table is more than 60% full
@@ -691,7 +691,7 @@ GSetBase::insertnode(HNode *n)
 
 
 void   
-GSetBase::deletenode(GCONT HNode *n)
+GSetBase::deletenode(HNode *n)
 {
   if (n == 0) 
     return;
