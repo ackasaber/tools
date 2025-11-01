@@ -376,6 +376,8 @@ public:
   GArrayTemplate(const Traits &traits) : GArrayBase(traits) {}
   GArrayTemplate(const Traits &traits, int lobound, int hibound)
     : GArrayBase(traits, lobound, hibound) {}
+  GArrayTemplate(const GArrayTemplate&) = default;
+  GArrayTemplate& operator=(const GArrayTemplate&) = default;
   // -- ACCESS
   /** Returns the number of elements in the array. */
   int size() const
@@ -638,9 +640,8 @@ public:
     : GArrayTemplate<GP<TYPE> >(GCont::NormTraits<GPBase>::traits(), 0, hi ) {}
   GPArray(int lo, int hi) 
     : GArrayTemplate<GP<TYPE> >(GCont::NormTraits<GPBase>::traits(), lo, hi ) {}
-  // Copy operator
-  GPArray& operator=(const GPArray &r)
-    { GArrayBase::operator=(r); return *this; }
+  GPArray(const GPArray &) = default;
+  GPArray& operator=(const GPArray &r) = default;
 };
 
 /** Dynamic array for simple types.  
@@ -724,6 +725,7 @@ public:
   GPosition() : ptr(0), cont(0) {}
   /** Creates a copy of a GPosition object. */
   GPosition(const GPosition &ref) : ptr(ref.ptr), cont(ref.cont) {}
+  GPosition& operator=(const GPosition &) = default;
   /** Tests whether this GPosition object is non null. */
   operator int() const 
     { return !!ptr; }
@@ -790,6 +792,8 @@ class GListImpl : public GListBase
   typedef GCont::ListNode<TI> LNode;
 protected:
   GListImpl();
+  GListImpl(const GListImpl&) = default;
+  GListImpl& operator=(const GListImpl&) = default;
   static Node * newnode(const TI &elt);
   int operator==(const GListImpl<TI> &l2) const;
   int search(const TI &elt, GPosition &pos) const;
@@ -844,6 +848,9 @@ class GListTemplate : protected GListImpl<TI>
 {
   typedef GCont::ListNode<TI> LNode;
 public:
+  GListTemplate() = default;
+  GListTemplate(const GListTemplate&) = default;
+  GListTemplate& operator=(const GListTemplate&) = default;
   // -- ACCESS
   /** Returns the number of elements in the list. */
   int size() const
@@ -970,8 +977,8 @@ class GList : public GListTemplate<TYPE,TYPE>
 public:
   /** Null Constructor. Constructs a list with zero elements. */
   GList() : GListTemplate<TYPE,TYPE>() {}
-  GList& operator=(const GList &r) 
-    { GListBase::operator=(r); return *this; }
+  GList(const GList&) = default;
+  GList& operator=(const GList &) = default;
 };
 
 
@@ -989,8 +996,8 @@ class GPList : public GListTemplate<GP<TYPE>,GPBase>
 public:
   /** Null Constructor. Constructs a list with zero elements. */
   GPList() : GListTemplate<GP<TYPE>,GPBase>() {}
-  GPList& operator=(const GPList &r) 
-    { GListBase::operator=(r); return *this; }
+  GPList(const GPList&) = default;
+  GPList& operator=(const GPList &) = default;
 };
 
 
@@ -1062,6 +1069,8 @@ class GSetImpl : public GSetBase
 protected:
   GSetImpl();
   GSetImpl(const Traits &traits);
+  GSetImpl(const GSetImpl&) = default;
+  GSetImpl& operator=(const GSetImpl&) = default;
   HNode *get(const K &key) const;
   HNode *get_or_throw(const K &key) const;
   HNode *get_or_create(const K &key);
@@ -1134,6 +1143,8 @@ class GMapImpl : public GSetImpl<K>
 protected:
   GMapImpl();
   GMapImpl(const GCont::Traits &traits);
+  GMapImpl(const GMapImpl&) = default;
+  GMapImpl& operator=(const GMapImpl&) = default;
   GCont::HNode* get_or_create(const K &key);
 };
 
@@ -1178,6 +1189,10 @@ class GMapTemplate : protected GMapImpl<KTYPE,TI>
 {
   typedef GCont::MapNode<KTYPE,TI> MNode;
 public:
+  GMapTemplate() = default;
+  GMapTemplate(const GMapTemplate &) = default;
+  GMapTemplate &operator=(const GMapTemplate &) = default;
+
   /** Returns the number of elements in the map. */
   int size() const
     { return this->nelems; }
@@ -1269,10 +1284,9 @@ template <class KTYPE, class VTYPE>
 class GMap : public GMapTemplate<KTYPE,VTYPE,VTYPE>
 {
 public:
-  // -- ACCESS
-  GMap() : GMapTemplate<KTYPE,VTYPE,VTYPE>() {}
-  GMap& operator=(const GMap &r) 
-    { GSetBase::operator=(r); return *this; }
+  GMap() = default;
+  GMap(const GMap&) = default;
+  GMap& operator=(const GMap &) = default;
 };
 
 /** Associative maps for smart-pointers.  

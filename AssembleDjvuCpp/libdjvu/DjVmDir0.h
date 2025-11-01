@@ -187,8 +187,10 @@ DjVmDir0::get_files_num(void) const
 }
 
 inline
-DjVmDir0::DjVmDir0(const DjVmDir0 & d) :
-      name2file(d.name2file), num2file(d.num2file)
+DjVmDir0::DjVmDir0(const DjVmDir0 & d)
+    : GPEnabled(d)
+    , name2file(d.name2file)
+    , num2file(d.num2file)
 {
 }
 
