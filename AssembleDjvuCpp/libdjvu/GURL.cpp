@@ -136,7 +136,7 @@ static const char localhostspec2[] = "///";
 #endif
 
 
-static const int
+static int
 pathname_start(const GUTF8String &url, const int protolength);
 
 // hexval --
@@ -848,8 +848,8 @@ GURL::is_local_file_url(void) const
    return (protocol()=="file" && url[5]==slash);
 }
 
-static const int
-pathname_start(const GUTF8String &url, const int protolength)
+static int
+pathname_start(const GUTF8String &url, int protolength)
 {
   const int length=url.length();
   int retval=0;
@@ -1032,7 +1032,7 @@ GURL::encode_reserved(const GUTF8String &gs)
       *d = slash; 
       continue;
     }
-    unsigned char const ss=(unsigned char const)(*s);
+    unsigned char ss=(unsigned char)(*s);
     // WARNING: Whenever you modify this conversion code,
     // make sure, that the following functions are in sync:
     //   encode_reserved()

@@ -57,7 +57,7 @@
 
 #include <stddef.h>
 
-#if HAVE_ICONV
+#ifdef HAVE_ICONV
 #include <iconv.h>
 #endif
 
@@ -265,7 +265,7 @@ GStringRep::Unicode::create(
   return retval;
 }
 
-#if HAVE_ICONV
+#ifdef HAVE_ICONV
 /* This template works around incompatible iconv protoypes */
 template<typename _T> inline size_t 
 iconv_adaptor(size_t(*iconv_func)(iconv_t, _T, size_t *, char**, size_t*),
@@ -303,7 +303,7 @@ GStringRep::Unicode::create(
     retval=create(xbuf,bufsize,XUCS4);
   }else
   {
-#if HAVE_ICONV
+#ifdef HAVE_ICONV
     EncodeType t=XOTHER;
     void const * const buf=checkmarks(xbuf,bufsize,t); 
     if(t != XOTHER)

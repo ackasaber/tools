@@ -1106,7 +1106,7 @@ lt_XMLParser::setOCRcallback(
   void * const arg,
   mapOCRcallback * const callback)
 {
-  ::OCRcallback(arg,callback);
+  OCRcallback(arg,callback);
 }
 
 }

@@ -131,7 +131,7 @@ GBitmap::GBitmap(ByteStream &ref, int border)
 }
 
 GBitmap::GBitmap(const GBitmap &ref)
-  : nrows(0), ncolumns(0), border(0), 
+  : GPEnabled(ref), nrows(0), ncolumns(0), border(0),
     bytes_per_row(0), grays(0), bytes(0),
     bytes_data(0), gbytes_data(bytes_data), 
     rle(0), grle(rle), rlerows(0), grlerows(rlerows), rlelength(0),

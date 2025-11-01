@@ -1592,16 +1592,6 @@ GStringRep::vformat(va_list args) const
         gbuffer.resize(buflen+32768);
       }
     va_end(args);
-    buffer[buflen-1] = 0;
-    vsprintf(buffer, fmt, args);
-    va_end(args);
-    if (buffer[buflen-1])
-      {
-        // This isn't as fatal since it is on the stack, but we
-        // definitely should stop the current operation.
-        G_THROW( ERR_MSG("GString.overwrite") );
-      }
-#endif
     retval=strdup((const char *)buffer);
   }
   // Go altering the string

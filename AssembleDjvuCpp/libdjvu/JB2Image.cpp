@@ -1316,6 +1316,7 @@ JB2Dict::JB2Codec::code_record(
         case MATCHED_REFINE_IMAGE_ONLY:
         case NON_MARK_DATA:
           jblt->shapeno = shapeno;
+          // fall through
         case MATCHED_COPY:
           if(!gjim)
           {

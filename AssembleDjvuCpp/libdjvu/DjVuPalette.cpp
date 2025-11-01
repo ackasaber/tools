@@ -120,7 +120,7 @@ DjVuPalette::operator=(const DjVuPalette &ref)
 }
 
 DjVuPalette::DjVuPalette(const DjVuPalette &ref)
-  : mask(0), hist(0), pmap(0)
+  : GPEnabled(ref), mask(0), hist(0), pmap(0)
 {
   this->operator=(ref);
 }

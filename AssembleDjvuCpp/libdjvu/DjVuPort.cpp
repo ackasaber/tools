@@ -199,6 +199,7 @@ DjVuPort::DjVuPort()
 }
 
 DjVuPort::DjVuPort(const DjVuPort & port)
+    : GPEnabled(port)
 {
   DjVuPortcaster *pcaster = get_portcaster();
   GCriticalSectionLock lock(& pcaster->map_lock );

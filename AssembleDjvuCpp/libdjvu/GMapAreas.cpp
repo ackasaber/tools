@@ -187,7 +187,7 @@ GMapArea::transform(const GRect & grect)
    }
 }
 
-char const * const
+char const *
 GMapArea::check_object(void)
 {
    char const *retval;
@@ -510,7 +510,7 @@ GMapPoly::are_segments_parallel(int x11, int y11, int x12, int y12,
    return (x12-x11)*(y22-y21)-(y12-y11)*(x22-x21)==0;
 }
 
-char const * const
+char const *
 GMapPoly::check_data(void)
 {
   if ((open && points<2) || (!open && points<3))
@@ -677,7 +677,7 @@ GMapPoly::gma_transform(const GRect & grect)
    }
 }
 
-char const * const
+char const *
 GMapPoly::gma_check_object(void) const
 {
    const char * str;
@@ -801,7 +801,7 @@ GMapOval::gma_is_point_inside(const int x, const int y) const
       sqrt((double)((x-xf2)*(x-xf2)+(y-yf2)*(y-yf2))) <= 2*rmax;
 }
 
-char const * const
+char const *
 GMapOval::gma_check_object(void) const
 {
    return (border_type!=NO_BORDER &&

@@ -662,9 +662,8 @@ public:
     : GArrayTemplate<TYPE>(GCont::TrivTraits<sizeof(TYPE)>::traits(), 0, hi ) {}
   GTArray(int lo, int hi) 
     : GArrayTemplate<TYPE>(GCont::TrivTraits<sizeof(TYPE)>::traits(), lo, hi ) {}
-  // Copy operator
-  GTArray& operator=(const GTArray &r)
-    { GArrayBase::operator=(r); return *this; }
+  GTArray(const GTArray &) = default;
+  GTArray& operator=(const GTArray &r) = default;
 };
 
 
@@ -1306,8 +1305,8 @@ class GPMap : public GMapTemplate<KTYPE,GP<VTYPE>,GPBase>
 {
 public:
   GPMap() : GMapTemplate<KTYPE,GP<VTYPE>,GPBase>() {}
-  GPMap& operator=(const GPMap &r) 
-    { GSetBase::operator=(r); return *this; }
+  GPMap(const GPMap&) = default;
+  GPMap& operator=(const GPMap &) = default;
 };
 
 

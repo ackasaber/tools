@@ -558,8 +558,6 @@ DjVuMessageLookUpUTF8(
     strcpy( msg_buffer, converted );
 }
 
-}
-
 void
 DjVuFormatErrorUTF8( const char *fmt, ... )
 {
@@ -584,4 +582,6 @@ djvu_programname(const char *xprogramname)
   if(xprogramname)
     DjVuMessage::programname()=GNativeString(xprogramname);
   return DjVuMessage::programname();
+}
+
 }

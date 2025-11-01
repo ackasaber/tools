@@ -266,10 +266,6 @@ public:
   //@}
 protected:
   ByteStream(void) : cp(AUTO) {};
-private:
-  // Cancel C++ default stuff
-  ByteStream(const ByteStream &);
-  ByteStream & operator=(const ByteStream &);
 public:
   /** Constructs an empty Memory ByteStream.  The buffer itself is organized
       as an array of 4096 byte blocks.  The buffer is initially empty. You

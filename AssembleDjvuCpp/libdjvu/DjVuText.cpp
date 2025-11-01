@@ -790,7 +790,7 @@ start_tag(const DjVuTXT::ZoneType zone, const GUTF8String &attributes)
 static inline GUTF8String
 start_tag(const int layer)
 {
-  return start_tag((const DjVuTXT::ZoneType)layer);
+  return start_tag((DjVuTXT::ZoneType)layer);
 }
 
 
@@ -819,7 +819,7 @@ end_tag(const DjVuTXT::ZoneType zone)
 static inline GUTF8String
 end_tag(const int layer)
 {
-  return end_tag((const DjVuTXT::ZoneType)layer);
+  return end_tag((DjVuTXT::ZoneType)layer);
 }
 
 static GUTF8String
@@ -900,7 +900,7 @@ DjVuTXT::writeText(ByteStream &str_out,const int height) const
 {
   if(has_valid_zones())
   {
-    ::writeText(str_out,textUTF8,DjVuTXT::PAGE,page_zone.children,height);
+    DJVU::writeText(str_out,textUTF8,DjVuTXT::PAGE,page_zone.children,height);
   }else
   {
     str_out.writestring(start_tag(DjVuTXT::PAGE));

@@ -403,9 +403,7 @@ public:
 
   // Tests if a string is legally encoded in the current character set.
   virtual bool is_valid(void) const;
-#if HAS_WCHAR
   virtual int ncopy(wchar_t * const buf, const int buflen) const;
-#endif
   friend class GBaseString;
 
 protected:

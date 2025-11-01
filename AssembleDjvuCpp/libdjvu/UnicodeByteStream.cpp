@@ -59,7 +59,8 @@
 namespace DJVU {
 
 UnicodeByteStream::UnicodeByteStream(const UnicodeByteStream &uni)
-: bs(uni.bs), buffer(uni.buffer), bufferpos(uni.bufferpos), linesread(0)
+    : ByteStream(uni)
+    , bs(uni.bs), buffer(uni.buffer), bufferpos(uni.bufferpos), linesread(0)
 {
   startpos=bs->tell();
 }

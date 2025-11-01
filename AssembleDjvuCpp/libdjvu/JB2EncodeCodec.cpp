@@ -57,8 +57,6 @@
 // Lizardtech has split the corresponding cpp file into a decoder and an encoder.
 // Only superficial changes.  The meat is mine.
 
-#ifndef NEED_DECODER_ONLY
-
 #include "JB2Image.h"
 #include "GBitmap.h"
 #include <string.h>

@@ -228,7 +228,7 @@ GPixmap::GPixmap(const GBitmap &ref, const GRect &rect)
 }
 
 GPixmap::GPixmap(const GPixmap &ref)
-: nrows(0), ncolumns(0), pixels(0), pixels_data(0)
+: GPEnabled(ref), nrows(0), ncolumns(0), pixels(0), pixels_data(0)
 {
   G_TRY
   {
