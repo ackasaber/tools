@@ -104,17 +104,11 @@ static const char localestring[]="locale";
 
 
 // directory names for searching messages
-#ifdef AUTOCONF
-static const char DjVuDataDir[] = DIR_DATADIR "/djvu/osi";
-#endif /* AUTOCONF */
 static const char ModuleDjVuDir[] ="share/djvu/osi";
 static const char ProfilesDjVuDir[] ="profiles";
 static const char LocalDjVuDir[] =".DjVu";      // relative to ${HOME}
 #ifdef LT_DEFAULT_PREFIX
 static const char DjVuPrefixDir[] = LT_DEFAULT_PREFIX "/profiles";
-#endif
-#ifndef NDEBUG
-static const char DebugModuleDjVuDir[] ="../TOPDIR/SRCDIR/profiles";
 #endif
 #ifdef _WIN32
 static const char RootDjVuDir[] ="C:/Program Files/LizardTech/Profiles";
@@ -261,9 +255,6 @@ DjVuMessage::GetProfilePaths(void)
     GURL mpath(GetModulePath());
     if(!mpath.is_empty() && mpath.is_dir())
     {
-#if defined(UNIX) && !defined(AUTOCONF) && !defined(NDEBUG)
-      appendPath(GURL::UTF8(DebugModuleDjVuDir,mpath),pathsmap,paths);
-#endif
       appendPath(mpath,pathsmap,paths);
       appendPath(GURL::UTF8(ModuleDjVuDir,mpath),pathsmap,paths);
       appendPath(GURL::UTF8(ProfilesDjVuDir,mpath),pathsmap,paths);
@@ -277,10 +268,6 @@ DjVuMessage::GetProfilePaths(void)
       appendPath(GURL::UTF8(ModuleDjVuDir,mpath),pathsmap,paths);
       appendPath(GURL::UTF8(ProfilesDjVuDir,mpath),pathsmap,paths);
     }
-#endif
-#if defined(AUTOCONF)
-    GURL dpath = GURL::Filename::UTF8(DjVuDataDir);
-    appendPath(dpath,pathsmap,paths);
 #endif
 #ifdef _WIN32
     appendPath(RegOpenReadConfig(HKEY_CURRENT_USER),pathsmap,paths);

@@ -217,10 +217,8 @@ DjVuMessageLite::LookUp( const GUTF8String & MessageList ) const
 GUTF8String
 DjVuMessageLite::LookUpSingle( const GUTF8String &Single_Message ) const
 {
-#if HAS_CTRL_C_IN_ERR_MSG
   if (Single_Message[0] != '\003')
     return Single_Message;
-#endif
   //  Isolate the message ID and get the corresponding message text
   int ending_posn = Single_Message.contains("\t\v");
   if( ending_posn < 0 )
@@ -285,13 +283,13 @@ DjVuMessageLite::LookUpID( const GUTF8String &xmsgID,
   if(!Map.isempty())
   {
     GUTF8String msgID = xmsgID;
-#if HAS_CTRL_C_IN_ERR_MSG
+
     int start = 0;
     while (msgID[start] == '\003') 
       start ++;
     if (start > 0)
       msgID = msgID.substr(start, msgID.length() - start);
-#endif
+
     GPosition pos=Map.contains(msgID);
     if(pos)
     {

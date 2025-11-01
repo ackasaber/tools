@@ -9,62 +9,7 @@
 /* Define to 1 if you have the iconv function. */
 #cmakedefine HAVE_ICONV
 
-/* Define to 1 if you have the <sys/time.h> header file. */
-#undef HAVE_SYS_TIME_H
-
-/* Define to 1 if you have the 'wcrtomb' function. */
-#undef HAVE_WCRTOMB
-
-/* Define to 1 if 'fork' works. */
-#undef HAVE_WORKING_FORK
-
-/* Define to 1 if 'vfork' works. */
-#undef HAVE_WORKING_VFORK
-
-/* Define to the sub-directory where libtool stores uninstalled libraries. */
-#undef LT_OBJDIR
-
-/* Name of package */
-#undef PACKAGE
-
-/* Define to the address where bug reports for this package should be sent. */
-#undef PACKAGE_BUGREPORT
-
-/* Define to the full name of this package. */
-#undef PACKAGE_NAME
-
-/* Define to the full name and version of this package. */
-#undef PACKAGE_STRING
-
-/* Define to the one symbol short name of this package. */
-#undef PACKAGE_TARNAME
-
-/* Define to the home page for this package. */
-#undef PACKAGE_URL
-
-/* Define to the version of this package. */
-#undef PACKAGE_VERSION
-
-/* Define to 1 if you can safely include both <sys/time.h> and <time.h>. This
-   macro is obsolete. */
-#undef TIME_WITH_SYS_TIME
-
-/* Version number of package */
-#undef VERSION
-
-/* Define as a signed integer type capable of holding a process identifier. */
-#undef pid_t
-
-/* Define as 'fork' if 'vfork' does not work. */
-#undef vfork
-
-
-
 /* - Miscellaneous */
-#define AUTOCONF 1
 #if defined(__CYGWIN32__) || !defined(_WIN32)
 # define UNIX 1
 #endif
-
-/* - I18N MESSAGES HELL */
-#define HAS_CTRL_C_IN_ERR_MSG 1

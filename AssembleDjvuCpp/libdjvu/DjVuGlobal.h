@@ -360,18 +360,10 @@ DJVUEXTERNCAPI(const char *djvu_programname(const char *programname));
 //  effect on the executed program. It should be used to surround each
 //  message name that will need to be looked up in the external message
 //  files. In particular, it should use on all strings passed to G_THROW.
-#ifndef HAS_CTRL_C_IN_ERR_MSG
-# define HAS_CTRL_C_IN_ERR_MSG 1
-#endif
-#ifndef ERR_MSG
-# if HAS_CTRL_C_IN_ERR_MSG
+
 // This hack allows for the coexistence of internationalized
 // and non-internationalized code.  All internationalized error
 // message names are prefixed with a ctrl-c.  Only these will
 // be looked for in the message files.  Messages that do no 
 // start with a ctrl-c will remain untranslated.
-#  define ERR_MSG(x) "\003" x
-# else
-#  define ERR_MSG(x) x
-# endif
-#endif
+#define ERR_MSG(x) "\003" x
