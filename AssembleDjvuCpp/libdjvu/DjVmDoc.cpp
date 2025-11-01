@@ -301,13 +301,13 @@ DjVmDoc::write(const GP<ByteStream> &gstr,
         for(pos=files_list;pos;++pos)
         {
           GP<DjVmDir::File> file=files_list[pos];
-          this_doc[::get_name(*file)]=0;
+          this_doc[get_name(*file)]=0;
         }
         bool need_new_list=false;
         for(pos=files_list;pos;++pos)
         {
           GP<DjVmDir::File> file=files_list[pos];
-          const GUTF8String name(::get_name(*file));
+          const GUTF8String name(get_name(*file));
           if(reserved.contains(name))
           {
             GUTF8String new_name;
@@ -349,7 +349,7 @@ DjVmDoc::write(const GP<ByteStream> &gstr,
         const GP<IFFByteStream> giff_in(
           IFFByteStream::create(data[data_pos]->get_stream()));
         const GP<IFFByteStream> giff_out(IFFByteStream::create(gout));
-        ::save_file(*giff_in,*giff_out,*dir,incl);
+        DJVU::save_file(*giff_in,*giff_out,*dir,incl);
       }
       gout->seek(0L);
       data[data_pos]=DataPool::create(gout);
@@ -584,7 +584,7 @@ DjVmDoc::save_file(const GURL &codebase, const DjVmDir::File &file,
   DataPool::load_file(new_url);
   const GP<ByteStream> str_in(pool->get_stream());
   const GP<ByteStream> str_out(ByteStream::create(new_url, "wb"));
-  ::save_file( *IFFByteStream::create(str_in),
+  DJVU::save_file( *IFFByteStream::create(str_in),
       *IFFByteStream::create(str_out), *dir, incl);
   return save_name;
 }

@@ -1328,9 +1328,6 @@ ByteStream::getAsUTF8(void)
   return GUTF8String(buffer);
 }
 
-
-}
-
 void
 DjVuPrintErrorUTF8(const char *fmt, ... )
 {
@@ -1401,4 +1398,6 @@ DjVuPrintMessageNative(const char *fmt, ... )
     // Need to catch all exceptions because these might be 
     // called from an outer exception handler (with prejudice)
   } G_CATCH_ALL { } G_ENDCATCH;
+}
+
 }

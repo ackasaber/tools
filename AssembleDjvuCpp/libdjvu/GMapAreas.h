@@ -225,7 +225,7 @@ public:
       /** Checks if the object is OK. Especially useful with \Ref{GMapPoly}
 	  where edges may intersect. If there is a problem it returns a
 	  string describing it. */
-   char const *	const check_object(void);
+   char const *	check_object(void);
       /** Stores the contents of the hyperlink object in a lisp-like format
 	  for saving into #ANTa# chunk (see \Ref{DjVuAnno}) */
    GUTF8String	print(void);
@@ -233,9 +233,9 @@ public:
    virtual GUTF8String get_xmltag(const int height) const=0;
 
       /// Virtual function returning the shape type.
-   virtual MapAreaType const get_shape_type( void ) const { return UNKNOWN; };
+   virtual MapAreaType get_shape_type( void ) const { return UNKNOWN; };
       /// Virtual function returning the shape name.
-   virtual char const * const	get_shape_name(void) const=0;
+   virtual char const * get_shape_name(void) const=0;
       /// Virtual function generating a copy of this object
    virtual GP<GMapArea>	get_copy(void) const=0;
       /// Virtual function generating a list of defining coordinates
@@ -255,7 +255,7 @@ protected:
    virtual void		gma_resize(int new_width, int new_height)=0;
    virtual void		gma_transform(const GRect & grect)=0;
    virtual bool		gma_is_point_inside(const int x, const int y) const=0;
-   virtual char const * const	gma_check_object(void) const=0;
+   virtual char const * gma_check_object(void) const=0;
    virtual GUTF8String	gma_print(void)=0;
    
    void		clear_bounds(void) { bounds_initialized=0; }
@@ -298,9 +298,9 @@ public:
    
    virtual GUTF8String get_xmltag(const int height) const;
       /// Returns MapRect
-   virtual MapAreaType const get_shape_type( void ) const { return RECT; };
+   virtual MapAreaType get_shape_type( void ) const { return RECT; };
       /// Returns #"rect"#
-   virtual char const * const	get_shape_name(void) const;
+   virtual char const * get_shape_name(void) const;
       /// Returns a copy of the rectangle
    virtual GP<GMapArea>	get_copy(void) const;
       /// Virtual function maps rectangle from one area to another using mapper
@@ -317,7 +317,7 @@ protected:
    virtual void		gma_resize(int new_width, int new_height);
    virtual void		gma_transform(const GRect & grect);
    virtual bool		gma_is_point_inside(const int x, const int y) const;
-   virtual char const * const gma_check_object(void) const;
+   virtual char const * gma_check_object(void) const;
    virtual GUTF8String	gma_print(void);
 };
 
@@ -373,13 +373,13 @@ public:
       /// Optimizes the polygon 
    void		optimize_data(void);
       /// Checks validity of the polygon 
-   char const * const	check_data(void);
+   char const * check_data(void);
 
    virtual GUTF8String get_xmltag(const int height) const;
       /// Returns MapPoly
-   virtual MapAreaType const get_shape_type( void ) const { return POLY; };
+   virtual MapAreaType get_shape_type( void ) const { return POLY; };
       /// Returns #"poly"# all the time
-   virtual char const * const 	get_shape_name(void) const;
+   virtual char const * get_shape_name(void) const;
       /// Returns a copy of the polygon
    virtual GP<GMapArea>	get_copy(void) const;
       /// Virtual function generating a list of defining coordinates
@@ -397,7 +397,7 @@ protected:
    virtual void		gma_resize(int new_width, int new_height);
    virtual void		gma_transform(const GRect & grect);
    virtual bool		gma_is_point_inside(const int x, const int y) const;
-   virtual char const * const gma_check_object(void) const;
+   virtual char const * gma_check_object(void) const;
    virtual GUTF8String	gma_print(void);
 private:
    bool		open;
@@ -443,9 +443,9 @@ public:
 
    virtual GUTF8String get_xmltag(const int height) const;
       /// Returns MapOval
-   virtual MapAreaType const get_shape_type( void ) const { return OVAL; };
+   virtual MapAreaType get_shape_type( void ) const { return OVAL; };
       /// Returns #"oval"#
-   virtual char const * const get_shape_name(void) const;
+   virtual char const * get_shape_name(void) const;
       /// Returns a copy of the oval
    virtual GP<GMapArea>	get_copy(void) const;
       /// Virtual function maps oval from one area to another using mapper
@@ -461,7 +461,7 @@ protected:
    virtual void		gma_resize(int new_width, int new_height);
    virtual void		gma_transform(const GRect & grect);
    virtual bool		gma_is_point_inside(const int x, const int y) const;
-   virtual char const * const	gma_check_object(void) const;
+   virtual char const * gma_check_object(void) const;
    virtual GUTF8String	gma_print(void);
 private:
    int		rmax, rmin;
@@ -490,10 +490,10 @@ GMapRect::gma_get_xmax(void) const { return xmax; }
 inline int
 GMapRect::gma_get_ymax(void) const { return ymax; }
 
-inline char const * const
+inline char const *
 GMapRect::gma_check_object(void)  const{ return ""; }
 
-inline char const * const 
+inline char const *
 GMapRect::get_shape_name(void) const { return RECT_TAG; }
 
 inline int
@@ -508,7 +508,7 @@ GMapPoly::get_x(int i) const { return xx[i]; }
 inline int
 GMapPoly::get_y(int i) const { return yy[i]; }
 
-inline char const * const
+inline char const *
 GMapPoly::get_shape_name(void) const { return POLY_TAG; }
 
 inline int
@@ -535,7 +535,7 @@ GMapOval::gma_get_xmax(void) const { return xmax; }
 inline int
 GMapOval::gma_get_ymax(void) const { return ymax; }
 
-inline char const * const
+inline char const *
 GMapOval::get_shape_name(void) const { return OVAL_TAG; }
 
 //@}
