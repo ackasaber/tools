@@ -112,62 +112,62 @@ namespace DJVU {
 //@{
 
 // Auxiliary classes: Will be used in place of GPBase and GPEnabled objects
-class _ArrayRep
+class ArrayGPEnabled
 {
-   friend class	_ArrayBase;
+   friend class	ArrayGPBase;
 public:
-   _ArrayRep(void) : count(0) {}
-   _ArrayRep(const _ArrayRep &) {}
-   virtual ~_ArrayRep(void) {}
+   ArrayGPEnabled(void) {}
+   ArrayGPEnabled(const ArrayGPEnabled &) {}
+   virtual ~ArrayGPEnabled(void) {}
 
-   _ArrayRep & operator=(const _ArrayRep &) { return *this; }
+   ArrayGPEnabled & operator=(const ArrayGPEnabled &) { return *this; }
 
    int		get_count(void) const { return count; }
 private:
-   int		count;
+   int		count = 0;
 
    void		ref(void) { count++; }
    void		unref(void) { if (--count==0) delete this; }
 };
 
-class _ArrayBase
+class ArrayGPBase
 {
 public:
-   _ArrayBase(void) : rep(0) {}
-   _ArrayBase(const _ArrayBase & ab) : rep(0)
+   ArrayGPBase(void) : rep(0) {}
+   ArrayGPBase(const ArrayGPBase & ab) : rep(0)
    {
       if (ab.rep) ab.rep->ref();
       rep=ab.rep;
    }
-   _ArrayBase(_ArrayRep * ar) : rep(0)
+   ArrayGPBase(ArrayGPEnabled * ar) : rep(0)
    {
       if (ar) ar->ref();
       rep=ar;
    }
-   virtual ~_ArrayBase(void)
+   virtual ~ArrayGPBase(void)
    {
       if (rep) { rep->unref(); rep=0; }
    }
 
-   _ArrayRep *	get(void) const { return rep; }
-   _ArrayBase & assign(_ArrayRep * ar)
+   ArrayGPEnabled *	get(void) const { return rep; }
+   ArrayGPBase & assign(ArrayGPEnabled * ar)
    {
       if (ar) ar->ref();
       if (rep) rep->unref();
       rep=ar;
       return *this;
    }
-   _ArrayBase &	operator=(const _ArrayBase & ab) { return assign(ab.rep); }
-   bool		operator==(const _ArrayBase & ab) { return rep==ab.rep; }
+   ArrayGPBase &	operator=(const ArrayGPBase & ab) { return assign(ab.rep); }
+   bool		operator==(const ArrayGPBase & ab) { return rep==ab.rep; }
 private:
-   _ArrayRep	* rep;
+   ArrayGPEnabled	* rep;
 };
 
 // Internal "Array repository" holding the pointer to the actual data,
 // data bounds, etc. It copes with data elements with the help of five
 // static functions which pointers are supposed to be passed to the
 // constructor.
-class DJVUAPI ArrayRep : public _ArrayRep
+class DJVUAPI ArrayRep : public ArrayGPEnabled
 {
 public:
    ArrayRep(int elsize,
@@ -287,7 +287,7 @@ ArrayRep::touch(int n)
     and \Ref{TArray} instead.
     */
     
-class DJVUAPI ArrayBase : protected _ArrayBase
+class DJVUAPI ArrayBase : protected ArrayGPBase
 {
 protected:
    void		check(void);
