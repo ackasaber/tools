@@ -234,16 +234,16 @@ public:
 # define DEBUG1_MSG(x)  DEBUG_MSG_LVL(1,x)
 # define DEBUG1_MSGF(x) DEBUG_MSGF_LVL(1,x)
 #else
-# define DEBUG1_MSG(x)
-# define DEBUG1_MSGF(x)
+# define DEBUG1_MSG(x) do { } while(false)
+# define DEBUG1_MSGF(x) do { } while(false)
 #endif
 #if ( DEBUGLVL >= 2 )
 /** Generates a level 2 message */
 # define DEBUG2_MSG(x)  DEBUG_MSG_LVL(2,x)
 # define DEBUG2_MSGF(x) DEBUG_MSGF_LVL(2,x)
 #else
-# define DEBUG2_MSG(x)
-# define DEBUG2_MSGF(x)
+# define DEBUG2_MSG(x) do { } while(false)
+# define DEBUG2_MSGF(x) do { } while(false)
 #endif
 #if ( DEBUGLVL >= 3 )
 /** Generates a level 3 message */
