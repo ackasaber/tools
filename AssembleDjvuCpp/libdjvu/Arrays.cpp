@@ -96,7 +96,9 @@ ArrayRep::ArrayRep(int xelsize,
    resize(lo,hi);
 }
 
-ArrayRep::ArrayRep(const ArrayRep & arr) : data(0), minlo(0), maxhi(-1),
+ArrayRep::ArrayRep(const ArrayRep & arr)
+    : ArrayGPEnabled(arr)
+    , data(0), minlo(0), maxhi(-1),
    lobound(0), hibound(-1), elsize(arr.elsize), destroy(arr.destroy),
    init1(arr.init1), init2(arr.init2), copy(arr.copy), insert(arr.insert)
 {
