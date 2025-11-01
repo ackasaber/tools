@@ -85,7 +85,7 @@
 // Known platforms
 #ifdef _WIN32
 # define WINTHREADS 1
-#elif
+#else
 # define POSIXTHREADS 1
 #endif
 

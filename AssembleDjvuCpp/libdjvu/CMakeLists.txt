@@ -116,7 +116,7 @@ target_compile_features(djvulibre PRIVATE cxx_std_11)
 set_target_properties(djvulibre PROPERTIES CXX_EXTENSIONS OFF)
 target_compile_options(djvulibre PRIVATE
         $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
-        $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic -Werror>)
+        $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic -Wno-unused-parameter -Werror>)
 # config.h
 target_include_directories(djvulibre PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
 
