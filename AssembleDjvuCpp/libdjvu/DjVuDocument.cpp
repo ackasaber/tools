@@ -1389,7 +1389,7 @@ DjVuDocument::add_to_cache(const GP<DjVuFile> & f)
    if (cache)
    {
       GMap<GURL, void *> map;
-      ::add_to_cache(f, map, cache);
+      DJVU::add_to_cache(f, map, cache);
    }
 }
 
