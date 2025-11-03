@@ -133,10 +133,8 @@ public:
   friend class Unicode;
 
   class ChangeLocale;
-#if HAS_WCHAR
   class Native;
   friend class Native;
-#endif // HAS_WCHAR
   friend class GBaseString;
   friend class GUTF8String;
   friend class GNativeString;
@@ -330,9 +328,7 @@ public:
 
   // Tests if a string is legally encoded in the current character set.
   virtual bool is_valid(void) const = 0;
-#if HAS_WCHAR
   virtual int ncopy(wchar_t * const buf, const int buflen) const = 0;
-#endif
 protected:
 
 // Actual string data.
@@ -671,9 +667,7 @@ public:
   bool is_valid(void) const;
 
   /// copy to a wchar_t buffer
-#if HAS_WCHAR
   int ncopy(wchar_t * const buf, const int buflen) const;
-#endif
 protected:
   const char *gstr;
   static void throw_illegal_subscript() no_return;
@@ -884,11 +878,6 @@ public:
   static GUTF8String create( const uint32_t *buf, const unsigned int bufsize );
 };
 
-
-#if !HAS_WCHAR
-#define GBaseString GUTF8String
-#endif
-
 /** General purpose character string.
     Each instance of class #GNativeString# represents a character
     string.  Overloaded operators provide a value semantic to
@@ -935,9 +924,7 @@ public:
   /// Construct from base class.
   GNativeString(const GP<GStringRep> &str);
   GNativeString(const GBaseString &str);
-#if HAS_WCHAR
   GNativeString(const GUTF8String &str);
-#endif
   GNativeString(const GNativeString &str);
   /** Constructs a string from a character array.  Elements of the
       character array #dat# are added into the string until the
@@ -964,9 +951,6 @@ public:
       format #"%f"# in function #printf#.  */
   GNativeString(const double number);
 
-#if !HAS_WCHAR
-#undef GBaseString
-#else
   /// Initialize this string class
   void init(void);
 
@@ -1060,7 +1044,6 @@ public:
   static GNativeString create( const char *buf, const unsigned int bufsize );
   static GNativeString create( const uint16_t *buf, const unsigned int bufsize );
   static GNativeString create( const uint32_t *buf, const unsigned int bufsize );
-#endif // WinCE
 };
 
 //@}
@@ -1364,11 +1347,9 @@ inline bool
 GBaseString::is_valid(void) const
 { return ptr?((*this)->is_valid()):true; }
 
-#if HAS_WCHAR
 inline int
 GBaseString::ncopy(wchar_t * const buf, const int buflen) const
 {if(buf&&buflen)buf[0]=0;return ptr?((*this)->ncopy(buf,buflen)):0;}
-#endif
 
 inline int
 GBaseString::CheckSubscript(int n) const
@@ -1405,11 +1386,7 @@ inline GUTF8String& GUTF8String::operator= (const GNativeString &str)
 inline GUTF8String
 GUTF8String::create( const char *buf, const unsigned int bufsize )
 {
-#if HAS_WCHAR
   return GNativeString(buf,bufsize);
-#else
-  return GUTF8String(buf,bufsize);
-#endif
 }
 
 inline GUTF8String
@@ -1425,67 +1402,6 @@ GUTF8String::create( const uint32_t *buf, const unsigned int bufsize )
 }
 
 inline GNativeString::GNativeString(void) {}
-
-#if !HAS_WCHAR
-// For Windows CE, GNativeString is essentially GUTF8String
-
-inline
-GNativeString::GNativeString(const GUTF8String &str)
-: GUTF8String(str) {}
-
-inline
-GNativeString::GNativeString(const GP<GStringRep> &str)
-: GUTF8String(str) {}
-
-inline
-GNativeString::GNativeString(const char dat)
-: GUTF8String(dat) {}
-
-inline
-GNativeString::GNativeString(const char *str)
-: GUTF8String(str) {}
-
-inline
-GNativeString::GNativeString(const unsigned char *str)
-: GUTF8String(str) {}
-
-inline
-GNativeString::GNativeString(const uint16_t *str)
-: GUTF8String(str) {}
-
-inline
-GNativeString::GNativeString(const uint32_t *str)
-: GUTF8String(str) {}
-
-inline
-GNativeString::GNativeString(const char *dat, unsigned int len)
-: GUTF8String(dat,len) {}
-
-inline
-GNativeString::GNativeString(const uint16_t *dat, unsigned int len)
-: GUTF8String(dat,len) {}
-
-inline
-GNativeString::GNativeString(const uint32_t *dat, unsigned int len)
-: GUTF8String(dat,len) {}
-
-inline
-GNativeString::GNativeString(const GNativeString &str)
-: GUTF8String(str) {}
-
-inline
-GNativeString::GNativeString(const int number)
-: GUTF8String(number) {}
-
-inline
-GNativeString::GNativeString(const double number)
-: GUTF8String(number) {}
-
-inline
-GNativeString::GNativeString(const GNativeString &fmt, va_list &args)
-: GUTF8String(fmt,args) {}
-
-#else // HAS_WCHAR
 
 /// Initialize this string class
 inline void
@@ -1597,8 +1513,6 @@ GNativeString::downcase( void ) const
   if (ptr) return (*this)->downcase();
   return *this;
 }
-
-#endif // HAS_WCHAR
 
 inline bool
 operator==(const char *s1, const GBaseString &s2)

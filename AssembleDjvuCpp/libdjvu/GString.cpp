@@ -89,36 +89,6 @@ GBaseString::~GBaseString() {}
 GNativeString::~GNativeString() {}
 GUTF8String::~GUTF8String() {}
 
-#if !HAS_MBSTATE && HAS_WCHAR
-// Under some systems, wctomb() and mbtowc() are not thread
-// safe.  In those cases, wcrtomb and mbrtowc are preferred.
-// For Solaris, wctomb() and mbtowc() are thread safe, and 
-// wcrtomb() and mbrtowc() don't exist.
-
-#define wcrtomb MYwcrtomb
-#define mbrtowc MYmbrtowc
-#define mbrlen  MYmbrlen
-
-static inline int
-wcrtomb(char *bytes,wchar_t w,mbstate_t *)
-{
-  return wctomb(bytes,w);
-}
-
-static inline int
-mbrtowc(wchar_t *w,const char *source, size_t n, mbstate_t *)
-{
-  return mbtowc(w,source,n);
-}
-
-static inline size_t
-mbrlen(const char *s, size_t n, mbstate_t *)
-{
-  return mblen(s,n);
-}
-#endif // !HAS_MBSTATE || HAS_WCHAR
-
-
 GP<GStringRep>
 GStringRep::upcase(void) const
 { return tocase(giswupper,gtowupper); }
@@ -216,30 +186,6 @@ GStringRep::UTF8::create(const char fmt[],va_list& args)
   const GP<GStringRep> s(create(fmt));
   return (s?(s->vformat(args)):s);
 }
-
-#if !HAS_WCHAR
-
-#define NATIVE_CREATE(x) UTF8::create( x );
-
-#ifdef LC_ALL
-#undef LC_ALL
-#endif
-#define LC_ALL 0
-
-class GStringRep::ChangeLocale
-{
-public:
-  ChangeLocale(const int,const char *) {}
-  ~ChangeLocale() {};
-};
-
-GP<GStringRep>
-GStringRep::NativeToUTF8( const char *s )
-{
-  return GStringRep::UTF8::create(s);
-}
-
-#else
 
 #define NATIVE_CREATE(x) Native::create( x );
 
@@ -971,8 +917,6 @@ GStringRep::NativeToUTF8( const char *s )
 {
   return GStringRep::Native::create(s)->toUTF8();
 }
-
-#endif // HAS_WCHAR
 
 template <class TYPE>
 GP<GStringRep>
@@ -2586,7 +2530,6 @@ GUTF8String& GUTF8String::operator= (const char *str)
 GUTF8String GBaseString::operator+(const GUTF8String &s2) const
 { return GStringRep::UTF8::create(*this,s2); }
 
-#if HAS_WCHAR
 GUTF8String
 GNativeString::operator+(const GUTF8String &s2) const
 {
@@ -2595,7 +2538,6 @@ GNativeString::operator+(const GUTF8String &s2) const
   else
     return GStringRep::UTF8::create((*this),s2);
 }
-#endif
 
 GUTF8String
 GUTF8String::operator+(const GNativeString &s2) const
@@ -2610,7 +2552,6 @@ GUTF8String
 operator+(const char    *s1, const GUTF8String &s2)
 { return GStringRep::UTF8::create(s1,s2); }
 
-#if HAS_WCHAR
 GNativeString
 operator+(const char    *s1, const GNativeString &s2)
 { return GStringRep::Native::create(s1,s2); }
@@ -2669,7 +2610,5 @@ GNativeString::setat(const int n, const char ch)
     init((*this)->setat(CheckSubscript(n),ch));
   }
 }
-
-#endif
 
 }
