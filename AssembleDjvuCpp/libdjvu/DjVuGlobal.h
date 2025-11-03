@@ -277,38 +277,33 @@ private:
     This section contains functions that replace some of the standard
     system calls without any other header file dependancies.
  */
-
-#ifdef __cplusplus
-# define DJVUEXTERNCAPI(x) extern "C" DJVUAPI x;
-#else
-# define DJVUEXTERNCAPI(x) extern DJVUAPI x
-#endif
+namespace DJVU {
 
 /** This replaces fprintf(stderr,...), but with UTF8 encoded strings. */
-DJVUEXTERNCAPI(void DjVuPrintErrorUTF8(const char *fmt, ...));
+void DjVuPrintErrorUTF8(const char *fmt, ...);
 
 /** This replaces fprintf(stderr,...), but with UTF8 encoded strings. */
-DJVUEXTERNCAPI(void DjVuPrintErrorNative(const char *fmt, ...));
+void DjVuPrintErrorNative(const char *fmt, ...);
 
 /** This replaces printf(...), but requires UTF8 encoded strings. */
-DJVUEXTERNCAPI(void DjVuPrintMessageUTF8(const char *fmt, ...));
+void DjVuPrintMessageUTF8(const char *fmt, ...);
 
 /** This replaces printf(...), but requires UTF8 encoded strings. */
-DJVUEXTERNCAPI(void DjVuPrintMessageNative(const char *fmt, ...));
+void DjVuPrintMessageNative(const char *fmt, ...);
 
 /** The format (fmt) and arguments define a MessageList to be looked
     up in the external messages and printed to stderr. */
-DJVUEXTERNCAPI(void DjVuFormatErrorUTF8(const char *fmt, ...));
+void DjVuFormatErrorUTF8(const char *fmt, ...);
 
 /** The format (fmt) and arguments define a MessageList to be looked
     up in the external messages and printed to stderr. */
-DJVUEXTERNCAPI(void DjVuFormatErrorNative(const char *fmt, ...));
+void DjVuFormatErrorNative(const char *fmt, ...);
 
 /** Prints the translation of message to stderr. */
-DJVUEXTERNCAPI(void DjVuWriteError( const char *message ));
+void DjVuWriteError( const char *message );
 
 /** Prints the translation of message to stdout. */
-DJVUEXTERNCAPI(void DjVuWriteMessage( const char *message ));
+void DjVuWriteMessage( const char *message );
 
 /** A C function to perform a message lookup. Arguments are a buffer to
   received the translated message, a buffer size (bytes), and a
@@ -316,18 +311,19 @@ DJVUEXTERNCAPI(void DjVuWriteMessage( const char *message ));
   in UTF-8. In case of error, msg_buffer is empty
   (i.e., msg_buffer[0] == '\0').
 */
-DJVUEXTERNCAPI(void DjVuMessageLookUpUTF8(
-  char *msg_buffer, const unsigned int buffer_size, 
-  const char *message ));
-DJVUEXTERNCAPI(void DjVuMessageLookUpNative(
-  char *msg_buffer, const unsigned int buffer_size, 
-  const char *message ));
+void DjVuMessageLookUpUTF8(
+  char *msg_buffer, const unsigned int buffer_size,
+  const char *message );
+void DjVuMessageLookUpNative(
+  char *msg_buffer, const unsigned int buffer_size,
+  const char *message );
 
-/** This function sets the program name used when 
+/** This function sets the program name used when
     searching for language files.
 */
-DJVUEXTERNCAPI(const char *djvu_programname(const char *programname));
+const char *djvu_programname(const char *programname);
 
+}
 
 /** @name DjVu Names  
 
