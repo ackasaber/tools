@@ -118,7 +118,7 @@ target_compile_options(djvulibre PRIVATE
         $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
         $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic -Wno-unused-parameter -Werror>)
 # config.h
-target_include_directories(djvulibre PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
+target_include_directories(djvulibre PUBLIC "${CMAKE_CURRENT_BINARY_DIR}" "${CMAKE_CURRENT_LIST_DIR}")
 
 find_package(JPEG)
 target_link_libraries(djvulibre PRIVATE JPEG::JPEG)

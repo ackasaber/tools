@@ -8,7 +8,7 @@ target_compile_features(AssembleDjvuCpp PRIVATE cxx_std_23)
 set_target_properties(AssembleDjvuCpp PROPERTIES CXX_EXTENSIONS OFF)
 target_compile_options(AssembleDjvuCpp PRIVATE
         $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
-        $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic -Werror>)
+        $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic -Wno-unused-parameter -Werror>)
 
 find_package(JPEG)
 target_link_libraries(AssembleDjvuCpp PRIVATE JPEG::JPEG djvulibre)
