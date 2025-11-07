@@ -8,13 +8,12 @@
 
 #include <filesystem>
 #include <vector>
-#include <print>
 #include <string_view>
+
+#include <fmt/base.h>
 
 using namespace std::string_view_literals;
 using namespace DJVU;
-
-static auto inputDir = "/home/alex/Загрузки/assembly";
 
 static void ConvertPage(const GURL& source, const GURL& dest) {
     GP<ByteStream> jpegHolder = ByteStream::create(source, "rb");
@@ -59,9 +58,14 @@ static void ConvertPage(const GURL& source, const GURL& dest) {
     iff.close_chunk();
 }
 
-int main() {
+int main(int argc, char* argv[]) {
+    if (argc != 3) {
+        fmt::println("Usage: assemble-djvu DIRECTORY-PATH OUTPUT-FILENAME");
+        return -1;
+    }
+
     const auto imageSuffix = ".jpg"sv;
-    std::filesystem::path inputDirPath = inputDir;
+    std::filesystem::path inputDirPath = argv[1];
     std::vector<std::filesystem::path> inputFiles;
 
     for (const auto& entry : std::filesystem::directory_iterator(inputDirPath)) {
@@ -79,7 +83,7 @@ int main() {
         convFilename.replace(n - imageSuffix.length(), imageSuffix.length(), ".djvu");
         auto convPath = imagePath;
         convPath.replace_filename(convFilename);
-        std::println("{} -> {}", imagePath.string(), convPath.string());
+        fmt::println("{} -> {}", imagePath.string(), convPath.string());
 
         auto src = GURL::Filename::UTF8(imagePath.c_str());
         auto dst = GURL::Filename::UTF8(convPath.c_str());
@@ -89,7 +93,7 @@ int main() {
 
     GP<DjVuDocEditor> doc=DjVuDocEditor::create_wait();
     doc->insert_group(pageList);
-    auto bundleName = inputDirPath / "doc.djvu";
+    auto bundleName = inputDirPath / argv[2];
     auto bundleUrl = GURL::Filename::UTF8(bundleName.c_str());
     doc->save_as(bundleUrl, true);
 

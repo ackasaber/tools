@@ -112,8 +112,10 @@ add_library(djvulibre STATIC
         XMLTags.h
         ZPCodec.cpp
         ZPCodec.h)
-target_compile_features(djvulibre PRIVATE cxx_std_17)
-set_target_properties(djvulibre PROPERTIES CXX_EXTENSIONS OFF)
+set_target_properties(djvulibre PROPERTIES
+        CXX_STANDARD 17
+        CXX_STANDARD_REQUIRED ON
+        CXX_EXTENSIONS OFF)
 target_compile_options(djvulibre PRIVATE
         $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
         $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic -Wno-unused-parameter -Werror>)
